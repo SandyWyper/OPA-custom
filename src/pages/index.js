@@ -3,11 +3,25 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { GatsbySeo } from "gatsby-plugin-next-seo"
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
+    {/* <Seo title="Home" /> */}
+    {/* <GatsbySeo
+        title="Ricky Richards Photography"
+        description="Ricky Richards Photography British Photo Journalist and Documentary photographer based in San Francisco USA"
+        openGraph={{
+          images: [
+            {
+              url: data.OGImage.sharingImage.resize.src,
+              width: data.OGImage.sharingImage.resize.width,
+              height: data.OGImage.sharingImage.resize.height,
+              alt: data.OGImage.sharingImage.title,
+            },
+          ],
+        }}
+      /> */}
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>

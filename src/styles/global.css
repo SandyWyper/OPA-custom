@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  top: 100%;
+  width: max-content;
+  height: 0%;
+  background-color: teal;
+  overflow: hidden;
+  transition: height 0.15s ease-out;
+}
+
+.nav-trigger:hover .nav-dropdown {
+  height: 100%;
+}

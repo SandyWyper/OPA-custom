@@ -1,4 +1,7 @@
 {
   "spellright.language": ["English (British)"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
 }

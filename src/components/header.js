@@ -1,42 +1,87 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React, { useState } from "react"
+// import PropTypes from "prop-types"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import useScrollPosition from "../lib/useScrollPosition"
+import LogoImg from "../images/OPA.png"
+// import { useSpring, animated } from "react-spring"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = () => {
+  const data = useStaticQuery(
+    graphql`
+      query MyQuery {
+        allContentfulProject {
+          nodes {
+            slug
+            title
+          }
+        }
+      }
+    `
+  )
+  const projects = data.allContentfulProject.nodes
+  // Mobile nav open or not state
+  const [isOpen, setIsOpen] = useState(false)
+  const [isScrollTop, setIsScrollTop] = useState(true)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const pos = currPos.y > -60 || currPos.y > prevPos.y
+      if (pos !== isScrollTop) setIsScrollTop(pos)
+    },
+    [isScrollTop],
+    undefined,
+    undefined,
+    100
+  )
 
-Header.defaultProps = {
-  siteTitle: ``,
+  const classes = {
+    linkOuter: `h-full items-center flex`,
+    navLink: `px-4`,
+  }
+  return (
+    <header>
+      <div className={`max-w-6xl mx-auto flex justify-between`}>
+        <div>
+          <Link to="/">
+            <img
+              src={LogoImg}
+              alt="One Planet Associates logo"
+              className="w-16 h-16 m-2"
+            />
+          </Link>
+        </div>
+        <div className={`flex`}>
+          <h3 className={classes.linkOuter}>
+            <Link to={`/services`} className={classes.navLink}>
+              services
+            </Link>
+          </h3>
+          <div
+            className={`relative nav-trigger cursor-pointer ${classes.linkOuter}`}
+          >
+            <h3 className={classes.navLink}>projects</h3>
+            <ul className={`nav-dropdown`}>
+              {projects.map((each, i) => (
+                <li key={each.slug + `-` + i}>
+                  <Link to={each.slug}>{each.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <h3 className={classes.linkOuter}>
+            <Link to={`/about`} className={classes.navLink}>
+              about
+            </Link>
+          </h3>
+          <h3 className={classes.linkOuter}>
+            <Link to={`/contact`} className={classes.navLink}>
+              contact
+            </Link>
+          </h3>
+        </div>
+      </div>
+    </header>
+  )
 }
 
 export default Header

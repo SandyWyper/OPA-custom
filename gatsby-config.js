@@ -58,7 +58,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
-          families: ["Work Sans:300,500,600"],
+          families: ["Poppins:300,500,600"],
         },
       },
     },

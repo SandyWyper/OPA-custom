@@ -4,9 +4,10 @@ import * as React from "react"
 import Layout from "../components/layout"
 // import { GatsbySeo } from "gatsby-plugin-next-seo"
 
-const IndexPage = () => (
-  <Layout>
-    {/* <GatsbySeo
+const IndexPage = () => {
+  return (
+    <Layout>
+      {/* <GatsbySeo
         title="Ricky Richards Photography"
         description="Ricky Richards Photography British Photo Journalist and Documentary photographer based in San Francisco USA"
         openGraph={{
@@ -20,8 +21,12 @@ const IndexPage = () => (
           ],
         }}
       /> */}
-    <div style={{ height: "300vh", background: "grey" }}>This</div>
-  </Layout>
-)
+      <div className={`min-h-screen bg-yellow-200`}>Hero</div>
+      <div className={`h-24 bg-green-800`}>Carbon counter</div>
+      <div className={`min-h-screen bg-gray-400`}>Services</div>
+      <div className={`min-h-screen bg-blue-200`}>About Gaz</div>
+    </Layout>
+  )
+}
 
 export default IndexPage

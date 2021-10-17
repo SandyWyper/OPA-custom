@@ -35,31 +35,83 @@ const Header = () => {
   )
 
   const classes = {
-    linkOuter: `h-full items-center flex`,
+    linkOuter: `flex h-full items-center`,
     navLink: `px-4`,
   }
+
   return (
-    <header>
-      <div className={`max-w-6xl mx-auto flex justify-between`}>
-        <div>
-          <Link to="/">
-            <img
-              src={LogoImg}
-              alt="One Planet Associates logo"
-              className="w-16 h-16 m-2"
-            />
-          </Link>
+    <>
+      <header className="fixed inset-x-0 top-0">
+        <div className={`max-w-6xl mx-auto flex justify-between items-stretch`}>
+          <div>
+            <Link to="/">
+              <img
+                src={LogoImg}
+                alt="One Planet Associates logo"
+                className="w-16 h-16 m-2"
+              />
+            </Link>
+          </div>
+          <nav className={`flex justify-between items-stretch`}>
+            <ul className={`hidden md:flex items-center`}>
+              <li className={classes.linkOuter}>
+                <Link to={`/services`} className={classes.navLink}>
+                  services
+                </Link>
+              </li>
+              <li
+                className={`relative down-chev nav-trigger cursor-pointer ${classes.linkOuter}`}
+              >
+                <button className={classes.navLink}>projects</button>
+                <ul className={`nav-dropdown`}>
+                  {projects.map((each, i) => (
+                    <li key={each.slug + `-` + i}>
+                      <Link to={each.slug}>{each.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li className={classes.linkOuter}>
+                <Link to={`/about`} className={classes.navLink}>
+                  about
+                </Link>
+              </li>
+              <li className={classes.linkOuter}>
+                <Link to={`/contact`} className={classes.navLink}>
+                  contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={`md:hidden mt-2 hamburger hamburger--squeeze relative ${
+              isOpen && "is-active"
+            }`}
+            type="button"
+            aria-label="Toggle Menu"
+          >
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </button>
         </div>
-        <div className={`flex`}>
-          <h3 className={classes.linkOuter}>
+      </header>
+      <nav
+        className={`mobile-nav ${
+          isOpen && "is-open shadow-lg"
+        } z-10 flex flex-col text-center bg-white pt-2 pb-8`}
+      >
+        <ul className={``}>
+          <li className={classes.linkOuter}>
             <Link to={`/services`} className={classes.navLink}>
               services
             </Link>
-          </h3>
-          <div
-            className={`relative nav-trigger cursor-pointer ${classes.linkOuter}`}
+          </li>
+          <li
+            className={`relative down-chev nav-trigger cursor-pointer ${classes.linkOuter}`}
           >
-            <h3 className={classes.navLink}>projects</h3>
+            <button className={classes.navLink}>projects</button>
             <ul className={`nav-dropdown`}>
               {projects.map((each, i) => (
                 <li key={each.slug + `-` + i}>
@@ -67,20 +119,21 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <h3 className={classes.linkOuter}>
+          </li>
+          <li className={classes.linkOuter}>
             <Link to={`/about`} className={classes.navLink}>
               about
             </Link>
-          </h3>
-          <h3 className={classes.linkOuter}>
+          </li>
+          <li className={classes.linkOuter}>
             <Link to={`/contact`} className={classes.navLink}>
               contact
             </Link>
-          </h3>
-        </div>
-      </div>
-    </header>
+          </li>
+        </ul>
+      </nav>
+      <div className={`overlay ${isOpen && "is-active"}`} />
+    </>
   )
 }
 

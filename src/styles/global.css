@@ -61,7 +61,18 @@
   position: absolute;
   transform: translateY(-100%);
   transition: transform 0.5s ease-in-out;
+  width: 100%;
+  padding: 4rem 0;
+  height: 100vh;
 }
 .mobile-nav.is-open {
   transform: translateY(0%);
+}
+.mob-nav-dropdown {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.15s ease-out;
+  background: pink;
+  width: 100%;
+  padding-left: 1rem;
 }

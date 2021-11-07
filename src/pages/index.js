@@ -1,8 +1,11 @@
 import * as React from "react"
 // import { StaticImage } from "gatsby-plugin-image"
-
-import Layout from "../components/layout"
 // import { GatsbySeo } from "gatsby-plugin-next-seo"
+import Hero from "../components/hero"
+import CarbonCounter from "../components/carbonCounter"
+import Layout from "../components/layout"
+import ServicesCTA from "../components/servicesCTA"
+import GazBio from "../components/gazBio"
 
 const IndexPage = () => {
   return (
@@ -21,10 +24,10 @@ const IndexPage = () => {
           ],
         }}
       /> */}
-      <div className={`min-h-screen bg-yellow-200`}>Hero</div>
-      <div className={`h-24 bg-green-800`}>Carbon counter</div>
-      <div className={`min-h-screen bg-gray-400`}>Services</div>
-      <div className={`min-h-screen bg-blue-200`}>About Gaz</div>
+      <Hero />
+      <CarbonCounter />
+      <ServicesCTA />
+      <GazBio />
     </Layout>
   )
 }

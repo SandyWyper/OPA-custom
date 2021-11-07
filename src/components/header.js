@@ -4,6 +4,15 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import useScrollPosition from "../lib/useScrollPosition"
 import LogoImg from "../images/OPA.png"
 // import { useSpring, animated } from "react-spring"
+import { toggleMenuCollapse } from "../lib/toggleMenuCollapse"
+
+const NavItem = ({ children, path, screen }) => (
+  <li className={screen === "desktop" ? `flex h-full items-center` : ``}>
+    <Link to={path} className={`px-4`}>
+      {children}
+    </Link>
+  </li>
+)
 
 const Header = () => {
   const data = useStaticQuery(
@@ -18,6 +27,7 @@ const Header = () => {
       }
     `
   )
+
   const projects = data.allContentfulProject.nodes
   // Mobile nav open or not state
   const [isOpen, setIsOpen] = useState(false)
@@ -34,11 +44,6 @@ const Header = () => {
     100
   )
 
-  const classes = {
-    linkOuter: `flex h-full items-center`,
-    navLink: `px-4`,
-  }
-
   return (
     <>
       <header className="fixed inset-x-0 top-0">
@@ -52,17 +57,16 @@ const Header = () => {
               />
             </Link>
           </div>
-          <nav className={`flex justify-between items-stretch`}>
-            <ul className={`hidden md:flex items-center`}>
-              <li className={classes.linkOuter}>
-                <Link to={`/services`} className={classes.navLink}>
-                  services
-                </Link>
-              </li>
+          <nav className={`hidden md:flex justify-between items-stretch`}>
+            <ul className={`flex items-center`}>
+              <NavItem path="/services" screen="desktop">
+                services
+              </NavItem>
               <li
-                className={`relative down-chev nav-trigger cursor-pointer ${classes.linkOuter}`}
+                className={`relative down-chev nav-trigger cursor-pointer flex h-full items-center`}
               >
-                <button className={classes.navLink}>projects</button>
+                <button className={`px-4`}>projects</button>
+
                 <ul className={`nav-dropdown`}>
                   {projects.map((each, i) => (
                     <li key={each.slug + `-` + i}>
@@ -71,22 +75,60 @@ const Header = () => {
                   ))}
                 </ul>
               </li>
-              <li className={classes.linkOuter}>
-                <Link to={`/about`} className={classes.navLink}>
-                  about
-                </Link>
-              </li>
-              <li className={classes.linkOuter}>
-                <Link to={`/contact`} className={classes.navLink}>
-                  contact
-                </Link>
-              </li>
+              <NavItem path="/about" screen="desktop">
+                about
+              </NavItem>
+              <NavItem path="/contact" screen="desktop">
+                contact
+              </NavItem>
             </ul>
           </nav>
+          <nav
+            className={`mobile-nav ${
+              isOpen && "is-open shadow-lg"
+            } z-10 flex flex-col bg-white pt-2 pb-8`}
+          >
+            <ul>
+              <NavItem path="/home" screen="mobile">
+                home
+              </NavItem>
+              <NavItem path="/services" screen="mobile">
+                services
+              </NavItem>
+              <li className={`relative down-chev`}>
+                <button
+                  className={`px-4`}
+                  onClick={() => toggleMenuCollapse("#mob-projects")}
+                  aria-label="Expand menu"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  role="tab"
+                >
+                  projects
+                </button>
+              </li>
+              <div id="mob-projects" className={`mob-nav-dropdown`}>
+                <ul>
+                  {projects.map((each, i) => (
+                    <li key={each.slug + `-` + i}>
+                      <Link to={each.slug}>{each.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <NavItem path="/about" screen="mobile">
+                about
+              </NavItem>
+              <NavItem path="/contact" screen="mobile">
+                contact
+              </NavItem>
+            </ul>
+          </nav>
+          <div className={`overlay ${isOpen ? "is-active" : ""}`} />
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden mt-2 hamburger hamburger--squeeze relative ${
-              isOpen && "is-active"
+              isOpen ? "is-active" : ""
             }`}
             type="button"
             aria-label="Toggle Menu"
@@ -97,42 +139,6 @@ const Header = () => {
           </button>
         </div>
       </header>
-      <nav
-        className={`mobile-nav ${
-          isOpen && "is-open shadow-lg"
-        } z-10 flex flex-col text-center bg-white pt-2 pb-8`}
-      >
-        <ul className={``}>
-          <li className={classes.linkOuter}>
-            <Link to={`/services`} className={classes.navLink}>
-              services
-            </Link>
-          </li>
-          <li
-            className={`relative down-chev nav-trigger cursor-pointer ${classes.linkOuter}`}
-          >
-            <button className={classes.navLink}>projects</button>
-            <ul className={`nav-dropdown`}>
-              {projects.map((each, i) => (
-                <li key={each.slug + `-` + i}>
-                  <Link to={each.slug}>{each.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-          <li className={classes.linkOuter}>
-            <Link to={`/about`} className={classes.navLink}>
-              about
-            </Link>
-          </li>
-          <li className={classes.linkOuter}>
-            <Link to={`/contact`} className={classes.navLink}>
-              contact
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <div className={`overlay ${isOpen && "is-active"}`} />
     </>
   )
 }

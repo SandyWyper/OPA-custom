@@ -8,6 +8,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+p {
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
 .nav-dropdown {
   position: absolute;
   bottom: auto;
@@ -22,7 +26,7 @@
   justify-content: space-evenly;
   padding: 0 1rem;
   width: max-content;
-  background-color: teal;
+  /* background-color: teal; */
 }
 
 .nav-trigger:hover .nav-dropdown {

@@ -45,101 +45,99 @@ const Header = () => {
   )
 
   return (
-    <>
-      <header className="fixed inset-x-0 top-0">
-        <div className={`max-w-6xl mx-auto flex justify-between items-stretch`}>
-          <div>
-            <Link to="/">
-              <img
-                src={LogoImg}
-                alt="One Planet Associates logo"
-                className="w-16 h-16 m-2"
-              />
-            </Link>
-          </div>
-          <nav className={`hidden md:flex justify-between items-stretch`}>
-            <ul className={`flex items-center`}>
-              <NavItem path="/services" screen="desktop">
-                services
-              </NavItem>
-              <li
-                className={`relative down-chev nav-trigger cursor-pointer flex h-full items-center`}
-              >
-                <button className={`px-4`}>projects</button>
-
-                <ul className={`nav-dropdown`}>
-                  {projects.map((each, i) => (
-                    <li key={each.slug + `-` + i}>
-                      <Link to={each.slug}>{each.title}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-              <NavItem path="/about" screen="desktop">
-                about
-              </NavItem>
-              <NavItem path="/contact" screen="desktop">
-                contact
-              </NavItem>
-            </ul>
-          </nav>
-          <nav
-            className={`mobile-nav ${
-              isOpen && "is-open shadow-lg"
-            } z-10 flex flex-col bg-white pt-2 pb-8`}
-          >
-            <ul>
-              <NavItem path="/home" screen="mobile">
-                home
-              </NavItem>
-              <NavItem path="/services" screen="mobile">
-                services
-              </NavItem>
-              <li className={`relative down-chev`}>
-                <button
-                  className={`px-4`}
-                  onClick={() => toggleMenuCollapse("#mob-projects")}
-                  aria-label="Expand menu"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  role="tab"
-                >
-                  projects
-                </button>
-              </li>
-              <div id="mob-projects" className={`mob-nav-dropdown`}>
-                <ul>
-                  {projects.map((each, i) => (
-                    <li key={each.slug + `-` + i}>
-                      <Link to={each.slug}>{each.title}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <NavItem path="/about" screen="mobile">
-                about
-              </NavItem>
-              <NavItem path="/contact" screen="mobile">
-                contact
-              </NavItem>
-            </ul>
-          </nav>
-          <div className={`overlay ${isOpen ? "is-active" : ""}`} />
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden mt-2 hamburger hamburger--squeeze relative ${
-              isOpen ? "is-active" : ""
-            }`}
-            type="button"
-            aria-label="Toggle Menu"
-          >
-            <span className="hamburger-box">
-              <span className="hamburger-inner"></span>
-            </span>
-          </button>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className={`container mx-auto flex justify-between items-stretch`}>
+        <div>
+          <Link to="/">
+            <img
+              src={LogoImg}
+              alt="One Planet Associates logo"
+              className="w-16 h-16 m-2 md:w-20 md:h-20"
+            />
+          </Link>
         </div>
-      </header>
-    </>
+        <nav className={`hidden md:flex justify-between items-stretch`}>
+          <ul className={`flex items-center`}>
+            <NavItem path="/services" screen="desktop">
+              services
+            </NavItem>
+            <li
+              className={`relative down-chev nav-trigger cursor-pointer flex h-full items-center`}
+            >
+              <button className={`px-4`}>projects</button>
+
+              <ul className={`nav-dropdown`}>
+                {projects.map((each, i) => (
+                  <li key={each.slug + `-` + i}>
+                    <Link to={each.slug}>{each.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            <NavItem path="/about" screen="desktop">
+              about
+            </NavItem>
+            <NavItem path="/contact" screen="desktop">
+              contact
+            </NavItem>
+          </ul>
+        </nav>
+        <nav
+          className={`mobile-nav ${
+            isOpen && "is-open shadow-lg"
+          } z-10 flex flex-col bg-white pt-2 pb-8`}
+        >
+          <ul>
+            <NavItem path="/home" screen="mobile">
+              home
+            </NavItem>
+            <NavItem path="/services" screen="mobile">
+              services
+            </NavItem>
+            <li className={`relative down-chev`}>
+              <button
+                className={`px-4`}
+                onClick={() => toggleMenuCollapse("#mob-projects")}
+                aria-label="Expand menu"
+                aria-haspopup="true"
+                aria-expanded="false"
+                role="tab"
+              >
+                projects
+              </button>
+            </li>
+            <div id="mob-projects" className={`mob-nav-dropdown`}>
+              <ul>
+                {projects.map((each, i) => (
+                  <li key={each.slug + `-` + i}>
+                    <Link to={each.slug}>{each.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <NavItem path="/about" screen="mobile">
+              about
+            </NavItem>
+            <NavItem path="/contact" screen="mobile">
+              contact
+            </NavItem>
+          </ul>
+        </nav>
+        <div className={`overlay ${isOpen ? "is-active" : ""}`} />
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={`md:hidden mt-2 hamburger hamburger--squeeze relative ${
+            isOpen ? "is-active" : ""
+          }`}
+          type="button"
+          aria-label="Toggle Menu"
+        >
+          <span className="hamburger-box">
+            <span className="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+    </header>
   )
 }
 

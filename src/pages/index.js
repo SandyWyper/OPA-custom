@@ -6,6 +6,7 @@ import CarbonCounter from "../components/carbonCounter"
 import Layout from "../components/layout"
 import ServicesCTA from "../components/servicesCTA"
 import GazBio from "../components/gazBio"
+import LatestProjects from "../components/latestProjects"
 
 const IndexPage = () => {
   return (
@@ -25,8 +26,9 @@ const IndexPage = () => {
         }}
       /> */}
       <Hero />
-      <CarbonCounter />
       <ServicesCTA />
+      <CarbonCounter />
+      <LatestProjects />
       <GazBio />
     </Layout>
   )

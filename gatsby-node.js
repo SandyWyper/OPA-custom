@@ -32,6 +32,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     )
     return
   }
+
   const projects = projectQueryResult.data.allContentfulProject.nodes
   const numProjects = projectQueryResult.data.allContentfulProject.totalCount
 

@@ -65,7 +65,6 @@ const Header = () => {
               className={`relative down-chev nav-trigger cursor-pointer flex h-full items-center`}
             >
               <button className={`px-4`}>projects</button>
-
               <ul className={`nav-dropdown`}>
                 {projects.map((each, i) => (
                   <li key={each.slug + `-` + i}>

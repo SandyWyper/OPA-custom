@@ -8,13 +8,21 @@ const Hero = () => {
       <HeaderSpace />
       <div className="container flex mx-auto">
         <div>
-          <StaticImage className={`max-w-lg`} src={`../images/Logo-text.png`} />
+          <StaticImage
+            className={`max-w-lg`}
+            src={`../images/Logo-text.png`}
+            alt="XXXXX"
+          />
           <h3>
             OPA provides planning and consultancy services for domestic and
             commercial clients
           </h3>
         </div>
-        <StaticImage className={`max-w-lg`} src={`../images/16.29.10 3.JPG`} />
+        <StaticImage
+          className={`max-w-lg`}
+          src={`../images/16.29.10 3.JPG`}
+          alt="XXXXX"
+        />
       </div>
     </section>
   )

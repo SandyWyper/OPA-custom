@@ -24,7 +24,11 @@ const ServicesCTA = () => {
             <Link to={`/services`}>find out more</Link>
           </button>
         </div>
-        <StaticImage className={`max-w-lg`} src={`../images/16.29.10 3.JPG`} />
+        <StaticImage
+          className={`max-w-lg`}
+          src={`../images/16.29.10 3.JPG`}
+          alt="XXXXX"
+        />
       </div>
     </section>
   )

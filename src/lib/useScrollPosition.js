@@ -1,5 +1,8 @@
 import { useRef, useEffect } from "react"
 
+// Reference:
+// https://dev.to/n8tb1t/tracking-scroll-position-with-react-hooks-3bbj
+
 const isBrowser = typeof window !== `undefined`
 
 function getScrollPosition({ element, useWindow }) {

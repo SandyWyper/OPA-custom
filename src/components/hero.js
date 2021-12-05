@@ -4,7 +4,7 @@ import HeaderSpace from "./headerSpace"
 
 const Hero = () => {
   return (
-    <section className={`bg-gray-500`}>
+    <section className={`hero-container`}>
       <HeaderSpace />
       <div className="container flex mx-auto">
         <div>

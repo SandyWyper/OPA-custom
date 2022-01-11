@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useSpring, animated } from "react-spring"
-import { Waypoint } from "react-waypoint"
 
 const interpolateAndFloor = val => val.interpolate(val => Math.floor(val))
 
@@ -29,7 +28,6 @@ const Item = ({ data }) => {
 
   return (
     <div className="px-8 text-center">
-      <Waypoint onEnter={() => setHasAppeared(true)} />
       <h3>{label}</h3>
       <GatsbyImage image={image} alt={alt} />
       <animated.h3>{interpolateAndFloor(props.val)}</animated.h3>

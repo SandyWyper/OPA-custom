@@ -24,6 +24,7 @@
 .down-chev {
   position: relative;
   margin-right: 15px;
+  z-index: -1;
 }
 .down-chev:after {
   position: absolute;
@@ -56,6 +57,7 @@
   width: 100%;
   padding: 4rem 0;
   height: 100vh;
+  margin-left: -1rem;
 }
 .mobile-nav.is-open {
   transform: translateY(0%);

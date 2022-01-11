@@ -7,8 +7,8 @@ import LogoImg from "../images/OPA.png"
 import { toggleMenuCollapse } from "../lib/toggleMenuCollapse"
 
 const NavItem = ({ children, path, screen }) => (
-  <li className={screen === "desktop" ? `flex h-full items-center` : ``}>
-    <Link to={path} className={`px-4`}>
+  <li className={screen === "desktop" ? `flex h-full items-center px-4` : ``}>
+    <Link to={path} className={`font-semibold text-lg`}>
       {children}
     </Link>
   </li>
@@ -52,11 +52,13 @@ const Header = () => {
             <img
               src={LogoImg}
               alt="One Planet Associates logo"
-              className="w-16 h-16 m-2 md:w-20 md:h-20"
+              className="w-16 h-16 my-2 md:w-20 md:h-20"
             />
           </Link>
         </div>
-        <nav className={`hidden md:flex justify-between items-stretch`}>
+        <nav
+          className={`hidden md:flex justify-between items-stretch text-white font-semibold tracking-wider`}
+        >
           <ul className={`flex items-center`}>
             <NavItem path="/services" screen="desktop">
               services
@@ -64,7 +66,7 @@ const Header = () => {
             <li
               className={`relative down-chev nav-trigger cursor-pointer flex h-full items-center`}
             >
-              <button className={`px-4`}>projects</button>
+              <button className={`font-semibold text-lg px-4`}>projects</button>
               <ul className={`nav-dropdown`}>
                 {projects.map((each, i) => (
                   <li key={each.slug + `-` + i}>
@@ -86,7 +88,7 @@ const Header = () => {
             isOpen && "is-open shadow-lg"
           } z-10 flex flex-col bg-white pt-2 pb-8`}
         >
-          <ul>
+          <ul className="container">
             <NavItem path="/home" screen="mobile">
               home
             </NavItem>
@@ -95,7 +97,7 @@ const Header = () => {
             </NavItem>
             <li className={`relative down-chev`}>
               <button
-                className={`px-4`}
+                className={`font-semibold text-lg w-full text-left`}
                 onClick={() => toggleMenuCollapse("#mob-projects")}
                 aria-label="Expand menu"
                 aria-haspopup="true"

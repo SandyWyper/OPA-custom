@@ -7,7 +7,7 @@ const ServicesCTA = () => {
     <section>
       <div className="container py-10 md:py-16">
         <div className="md:flex md:items-center">
-          <div className="md:w-1/2 md:pr-16">
+          <div className="pl-6 border-l-4 md:w-1/2 md:pr-16 border-navy">
             <p>
               OPA is at the forefront of planning for a lower carbon future. We
               will advise and steer clients through the complex planning system

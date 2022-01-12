@@ -29,7 +29,9 @@ const Item = ({ data, isInView }) => {
   return (
     <div className="px-8 text-center">
       <h3>{label}</h3>
-      <GatsbyImage image={image} alt={alt} />
+      <div className="px-10 py-6">
+        <GatsbyImage image={image} alt={alt} />
+      </div>
       <div className="flex justify-center">
         <animated.h3 className={`mr-2`}>
           {interpolateAndFloor(props.val)}
@@ -71,7 +73,7 @@ const CarbonCounter = () => {
   })
 
   return (
-    <div ref={observe} className={`bg-turquois`}>
+    <div ref={observe} className={`py-12 `}>
       <div className="container">
         <div className={`grid grid-cols-1 md:grid-cols-4`}>
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (

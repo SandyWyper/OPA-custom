@@ -21,3 +21,27 @@
     }
   }
 }
+
+.page-wrapper {
+  position: relative;
+  &:before,
+  :after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  &:before {
+    z-index: -3;
+    background-color: white;
+    // transform: scaleX(1) scaleY(1.4);
+    background: url("./assets/contour.svg") no-repeat center -200px,
+      linear-gradient(180deg, #475451 45%, white 100%) no-repeat;
+    background-size: 100% 1000px;
+    @media (max-width: 768px) {
+      background-size: 180%;
+    }
+  }
+}

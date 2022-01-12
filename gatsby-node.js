@@ -41,7 +41,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: `/${project.slug}`,
       component: projectTemplate,
       context: {
-        currentPage: i + 1,
+        currentPage: project.slug,
         prev: i === 0 ? null : projects[i - 1].slug,
         next: i === numProjects - 1 ? null : projects[i + 1].slug,
       },

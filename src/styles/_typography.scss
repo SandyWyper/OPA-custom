@@ -1,9 +1,40 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+}
 
 h3 {
   font-size: 1.5rem;
+  margin-bottom: 1rem;
+  @media (min-width: 768px) {
+    font-size: 1.85rem;
+  }
+}
+h5 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.125rem;
 }
 
 p {

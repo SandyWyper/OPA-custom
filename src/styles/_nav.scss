@@ -12,7 +12,11 @@
   justify-content: space-evenly;
   padding: 0 1rem;
   width: max-content;
-  /* background-color: teal; */
+  background-color: rgba(39, 39, 39, 0.93);
+}
+.nav-trigger {
+  z-index: 20;
+  cursor: pointer;
 }
 
 .nav-trigger:hover {
@@ -24,17 +28,26 @@
 .down-chev {
   position: relative;
   margin-right: 15px;
-  z-index: -1;
+  // z-index: -1;
 }
 .down-chev:after {
+  // transition: transform 0.2s ease;
+  // transform-origin: center;
   position: absolute;
   right: -5px;
-  top: 50%;
+  top: 52%;
+  content: "";
   transform: translateY(-50%);
-  content: url("../images/down-arrow.svg");
-  width: 15px;
-  height: 15px;
+  background: url("./assets/triangle.svg");
+  background-size: contain;
+  background-position: center;
+  width: 13px;
+  height: 13px;
 }
+// .down-chev:hover:after {
+//   transform: rotate(-90deg);
+// }
+
 .overlay {
   position: fixed;
   top: 0;

@@ -23,9 +23,9 @@ const Hero = () => {
       <div className="container flex items-center justify-center mb-16 md:mr-36">
         <div className="md:max-w-4xl">
           <div className="md:pt-16">
-            <div className="pb-8 mx-auto md:mx-0 md:mr-16 blury">
+            <div className="pb-8 mx-auto md:mx-0 md:mr-16">
               <StaticImage
-                className={`mx-6 md:mx-0 max-w-lg`}
+                className={`mx-6 md:mx-0 max-w-sm`}
                 src={`../images/Logo-text.png`}
                 alt="XXXXX"
               />
@@ -40,7 +40,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="overflow-x-hidden md:px-12">
-        <div className="flex ">
+        <div className="flex">
           <div className="flex-none">
             <StaticImage
               className={imageClass}

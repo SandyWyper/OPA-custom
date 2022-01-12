@@ -45,7 +45,7 @@ const Header = () => {
   )
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white blury">
       <div className={`container mx-auto flex justify-between items-stretch`}>
         <div>
           <Link to="/">
@@ -64,13 +64,13 @@ const Header = () => {
               services
             </NavItem>
             <li
-              className={`relative down-chev nav-trigger cursor-pointer flex h-full items-center`}
+              className={`relative down-chev nav-trigger flex h-full items-center text-white`}
             >
               <button className={`font-semibold text-lg px-4`}>projects</button>
-              <ul className={`nav-dropdown`}>
+              <ul className={`nav-dropdown border-t border-white`}>
                 {projects.map((each, i) => (
                   <li key={each.slug + `-` + i}>
-                    <Link to={each.slug}>{each.title}</Link>
+                    <Link to={`/${each.slug}`}>{each.title}</Link>
                   </li>
                 ))}
               </ul>

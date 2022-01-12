@@ -2,24 +2,23 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useSpring, animated } from "react-spring"
+import useInView from "react-cool-inview"
 
 const interpolateAndFloor = val => val.interpolate(val => Math.floor(val))
 
-const Item = ({ data }) => {
-  const [hasAppeared, setHasAppeared] = useState(true)
+const Item = ({ data, isInView }) => {
   const image = getImage(data.icon)
   const { label, icon, unit, value } = data
   const alt = icon.title
-  const valueToShow = hasAppeared ? value : 0
 
   const props = useSpring({
     from: {
       val: 0,
     },
     to: {
-      val: valueToShow,
+      val: isInView ? value : 0,
     },
-    delay: 200,
+    delay: 1000,
     config: {
       easing: "ease-in",
       velocity: 10,
@@ -60,13 +59,28 @@ const CarbonCounter = () => {
       }
     `
   )
+  const [hasAppeared, setHasAppeared] = useState(false)
+
+  const { observe } = useInView({
+    threshold: 0.25,
+    onEnter: ({ unobserve }) => {
+      // Triggered when the target enters the viewport
+      setHasAppeared(true)
+      unobserve() // To stop observing the current target element
+    },
+  })
 
   return (
-    <div className={`bg-turquois`}>
+    <div ref={observe} className={`bg-turquois`}>
       <div className="container">
         <div className={`grid grid-cols-1 md:grid-cols-4`}>
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (
-            <Item data={node} index={i} key={`counter-${i}`} />
+            <Item
+              data={node}
+              index={i}
+              key={`counter-${i}`}
+              isInView={hasAppeared}
+            />
           ))}
         </div>
       </div>

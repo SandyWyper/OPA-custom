@@ -1,21 +1,21 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { animated, useSpring } from "react-spring"
+// import { animated, useSpring } from "react-spring"
 import HeaderSpace from "./headerSpace"
-import useScrollPosition from "../lib/useScrollPosition"
+// import useScrollPosition from "../lib/useScrollPosition"
 
 const Hero = () => {
   const imageClass = "border-8 border-white mx-4 h-full w-auto"
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      console.log(prevPos, currPos)
-    },
-    [],
-    undefined,
-    undefined,
-    100
-  )
+  // useScrollPosition(
+  //   ({ prevPos, currPos }) => {
+  //     console.log(prevPos, currPos)
+  //   },
+  //   [],
+  //   undefined,
+  //   undefined,
+  //   100
+  // )
 
   return (
     <section className={`hero-container`}>

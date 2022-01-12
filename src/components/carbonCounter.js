@@ -6,7 +6,7 @@ import { useSpring, animated } from "react-spring"
 const interpolateAndFloor = val => val.interpolate(val => Math.floor(val))
 
 const Item = ({ data }) => {
-  const [hasAppeared, setHasAppeared] = useState(false)
+  const [hasAppeared, setHasAppeared] = useState(true)
   const image = getImage(data.icon)
   const { label, icon, unit, value } = data
   const alt = icon.title
@@ -23,6 +23,7 @@ const Item = ({ data }) => {
     config: {
       easing: "ease-in",
       velocity: 10,
+      friction: 50,
     },
   })
 
@@ -30,8 +31,12 @@ const Item = ({ data }) => {
     <div className="px-8 text-center">
       <h3>{label}</h3>
       <GatsbyImage image={image} alt={alt} />
-      <animated.h3>{interpolateAndFloor(props.val)}</animated.h3>
-      <h3>{unit}</h3>
+      <div className="flex justify-center">
+        <animated.h3 className={`mr-2`}>
+          {interpolateAndFloor(props.val)}
+        </animated.h3>
+        <h3>{unit}</h3>
+      </div>
     </div>
   )
 }
@@ -57,11 +62,13 @@ const CarbonCounter = () => {
   )
 
   return (
-    <div className={`container mx-auto px-4 bg-green-800`}>
-      <div className={`grid grid-cols-1 md:grid-cols-4`}>
-        {data.allContentfulScoreboardItem.nodes.map((node, i) => (
-          <Item data={node} index={i} />
-        ))}
+    <div className={`bg-turquois`}>
+      <div className="container">
+        <div className={`grid grid-cols-1 md:grid-cols-4`}>
+          {data.allContentfulScoreboardItem.nodes.map((node, i) => (
+            <Item data={node} index={i} key={`counter-${i}`} />
+          ))}
+        </div>
       </div>
     </div>
   )

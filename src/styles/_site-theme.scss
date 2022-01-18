@@ -1,5 +1,6 @@
 .hero-container {
   position: relative;
+  min-height: 100vh;
   &:before,
   :after {
     position: absolute;
@@ -32,9 +33,9 @@
     height: 100%;
     top: 0;
     left: 0;
+    z-index: -1;
   }
   &:before {
-    z-index: -3;
     background-color: white;
     // transform: scaleX(1) scaleY(1.4);
     background: url("./assets/contour.svg") no-repeat center -200px,

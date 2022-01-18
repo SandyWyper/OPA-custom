@@ -1,17 +1,29 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-// import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 
 const Layout = ({ children }) => {
+  const links = useStaticQuery(
+    graphql`
+      query MyQuery {
+        allContentfulProject {
+          nodes {
+            slug
+            title
+          }
+        }
+      }
+    `
+  )
   return (
     <div className={`min-h-screen flex flex-col justify-between`}>
       <div>
-        <Header />
+        <Header links={links} />
         <main>{children}</main>
       </div>
-      <Footer />
+      <Footer links={links} />
     </div>
   )
 }

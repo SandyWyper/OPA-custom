@@ -83,19 +83,22 @@ const Project = props => {
             <div className="md:pl-4">
               <h1 className="text-navy">{title}</h1>
               <h3 className="inline-block border-b text-navy border-navy">
-                Carbon Stored
+                Installed Capacity
               </h3>
               <h5 className="mb-6">
                 {amountCarbonOffsetPerAnum}
-                &nbsp;<span>tonnes per year</span>
+                &nbsp;<span>kWhrs</span>
               </h5>
               <h3 className="inline-block border-b text-navy border-navy">
-                Electricity Generated
+                Power Supply
               </h3>
-              <h5 className="mb-6">
+              <h5 className="mb-6">{amountEnergyGeneratedPerAnum}&nbsp;</h5>
+              <h3 className="inline-block border-b text-navy border-navy">
+                Location
+              </h3>
+              {/* <h5 className="mb-6">
                 {amountEnergyGeneratedPerAnum}&nbsp;
-                <span>KWatts per year</span>
-              </h5>
+              </h5> */}
             </div>
           </div>
           <div className="py-12 bg-white">

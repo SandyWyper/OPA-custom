@@ -9,6 +9,7 @@
     "@contentful/rich-text-types": "^15.11.1",
     "cross-env": "^7.0.3",
     "gatsby": "^3.13.1",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-image": "^1.13.0",
     "gatsby-plugin-manifest": "^3.13.0",
     "gatsby-plugin-next-seo": "^1.8.0",
@@ -26,7 +27,8 @@
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^1.1.2",
     "react-spring": "^9.2.5",
-    "sass": "^1.44.0"
+    "sass": "^1.44.0",
+    "swiper": "^7.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.4",

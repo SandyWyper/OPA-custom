@@ -1,22 +1,9 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-// import { animated, useSpring } from "react-spring"
 import HeaderSpace from "./headerSpace"
-// import useScrollPosition from "../lib/useScrollPosition"
+import HeroCarousel from "./heroCarousel"
 
 const Hero = () => {
-  const imageClass = "border-8 border-white mx-4 h-full w-auto"
-
-  // useScrollPosition(
-  //   ({ prevPos, currPos }) => {
-  //     console.log(prevPos, currPos)
-  //   },
-  //   [],
-  //   undefined,
-  //   undefined,
-  //   100
-  // )
-
   return (
     <section className={`hero-container`}>
       <HeaderSpace />
@@ -31,57 +18,14 @@ const Hero = () => {
               />
             </div>
           </div>
-          <div className="text-center md:text-left blury">
+          <div className="text-center md:text-left">
             <h2 className="mb-0 text-xl text-white md:max-w-3xl">
               OPA provides planning and consultancy services for domestic and
               commercial clients.
             </h2>
           </div>
         </div>
-      </div>
-      <div className="overflow-x-hidden md:px-12">
-        <div className="flex">
-          <div className="flex-none">
-            <StaticImage
-              className={imageClass}
-              src={`../images/solar-farm-above.JPG`}
-              alt="XXXXX"
-              height={384}
-            />
-          </div>
-          <div className="flex-none">
-            <StaticImage
-              className={imageClass}
-              src={`../images/solar+wind.JPG`}
-              alt="XXXXX"
-              height={384}
-            />
-          </div>
-          <div className="flex-none">
-            <StaticImage
-              className={imageClass}
-              src={`../images/turbine-towards-padstow.JPG`}
-              alt="XXXXX"
-              height={384}
-            />
-          </div>
-          <div className="flex-none">
-            <StaticImage
-              className={imageClass}
-              src={`../images/solar-farm-2.JPG`}
-              alt="XXXXX"
-              height={384}
-            />
-          </div>
-          <div className="flex-none">
-            <StaticImage
-              className={imageClass}
-              src={`../images/turbine-hill.JPG`}
-              alt="XXXXX"
-              height={384}
-            />
-          </div>
-        </div>
+        <HeroCarousel />
       </div>
     </section>
   )

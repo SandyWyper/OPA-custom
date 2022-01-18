@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 // import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import useScrollPosition from "../lib/useScrollPosition"
 import LogoImg from "../images/OPA.png"
 // import { useSpring, animated } from "react-spring"
@@ -14,21 +14,8 @@ const NavItem = ({ children, path, screen }) => (
   </li>
 )
 
-const Header = () => {
-  const data = useStaticQuery(
-    graphql`
-      query MyQuery {
-        allContentfulProject {
-          nodes {
-            slug
-            title
-          }
-        }
-      }
-    `
-  )
-
-  const projects = data.allContentfulProject.nodes
+const Header = ({ links }) => {
+  const projects = links.allContentfulProject.nodes
   // Mobile nav open or not state
   const [isOpen, setIsOpen] = useState(false)
   const [isScrollTop, setIsScrollTop] = useState(true)
@@ -75,9 +62,6 @@ const Header = () => {
                 ))}
               </ul>
             </li>
-            <NavItem path="/about" screen="desktop">
-              about
-            </NavItem>
             <NavItem path="/contact" screen="desktop">
               contact
             </NavItem>
@@ -116,9 +100,6 @@ const Header = () => {
                 ))}
               </ul>
             </div>
-            <NavItem path="/about" screen="mobile">
-              about
-            </NavItem>
             <NavItem path="/contact" screen="mobile">
               contact
             </NavItem>

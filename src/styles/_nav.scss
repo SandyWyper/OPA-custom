@@ -7,9 +7,9 @@
   overflow: hidden;
   height: 0%;
   transition: height 0.15s ease-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-evenly;
   padding: 0 1rem;
   width: max-content;
   background-color: rgba(39, 39, 39, 0.93);
@@ -34,7 +34,7 @@
   // transition: transform 0.2s ease;
   // transform-origin: center;
   position: absolute;
-  right: -5px;
+  right: -20px;
   top: 52%;
   content: "";
   transform: translateY(-50%);
@@ -59,27 +59,60 @@
   z-index: 1;
   transition: opacity 0.5s linear;
 }
+
 .overlay.is-active {
   height: 100vh;
   opacity: 0.7;
 }
+
 .mobile-nav {
   position: absolute;
-  transform: translateY(-100%);
-  transition: transform 0.5s ease-in-out;
+  inset: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
   width: 100%;
   padding: 4rem 0;
   height: 100vh;
-  margin-left: -1rem;
 }
+
 .mobile-nav.is-open {
-  transform: translateY(0%);
+  transform: translateX(0%);
 }
+
 .mob-nav-dropdown {
   height: 0;
   overflow: hidden;
   transition: height 0.15s ease-out;
-  background: pink;
   width: 100%;
   padding-left: 1rem;
+}
+
+.nav-background {
+  position: relative;
+}
+
+.nav-background:before {
+  position: absolute;
+  z-index: -2;
+  content: "";
+  inset: 0;
+  opacity: 0;
+  background: url("./assets/contour.svg") no-repeat center top / cover #475451;
+  transition: opacity 0.7s ease;
+}
+
+.nav-background:after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  inset: 0;
+  transition: backdrop-filter 0.3s ease;
+  backdrop-filter: blur(0px);
+}
+
+.is-active.nav-background:before {
+  opacity: 0.8;
+}
+.is-active.nav-background:after {
+  backdrop-filter: blur(5px);
 }

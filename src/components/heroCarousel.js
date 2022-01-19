@@ -13,53 +13,49 @@ import "swiper/css/effect-cards"
 SwiperCore.use([Autoplay, EffectCards])
 
 const HeroCarousel = () => {
-  const imageClass = ""
-
   return (
-    <div className="max-w-2xl mx-auto">
-      <Swiper
-        effect={"cards"}
-        grabCursor={true}
-        className="mySwiper"
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        speed={1000}
-      >
-        <SwiperSlide className="border-8 border-cream">
-          <StaticImage src={`../images/solar-farm-above.JPG`} alt="XXXXX" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <StaticImage
-            src={`../images/solar+wind.JPG`}
-            alt="XXXXX"
-            className="border-8 border-cream"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <StaticImage
-            src={`../images/turbine-towards-padstow.JPG`}
-            alt="XXXXX"
-            className="border-8 border-cream"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <StaticImage
-            src={`../images/solar-farm-2.JPG`}
-            alt="XXXXX"
-            className="border-8 border-cream"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <StaticImage
-            src={`../images/turbine-hill.JPG`}
-            alt="XXXXX"
-            className="border-8 border-cream"
-          />
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <Swiper
+      effect={"cards"}
+      grabCursor={true}
+      className="mySwiper"
+      autoplay={{
+        delay: 4500,
+        disableOnInteraction: false,
+      }}
+      speed={1000}
+    >
+      <SwiperSlide className="border-8 border-cream">
+        <StaticImage src={`../images/solar-farm-above.JPG`} alt="XXXXX" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StaticImage
+          src={`../images/solar+wind.JPG`}
+          alt="XXXXX"
+          className="border-8 border-cream"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StaticImage
+          src={`../images/turbine-towards-padstow.JPG`}
+          alt="XXXXX"
+          className="border-8 border-cream"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StaticImage
+          src={`../images/solar-farm-2.JPG`}
+          alt="XXXXX"
+          className="border-8 border-cream"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <StaticImage
+          src={`../images/turbine-hill.JPG`}
+          alt="XXXXX"
+          className="border-8 border-cream"
+        />
+      </SwiperSlide>
+    </Swiper>
   )
 }
 

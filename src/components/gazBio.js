@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 const GazBio = () => {
   return (
     <div className={`py-12 bg-navy text-white`}>
-      <div className="container flex py-12">
+      <div className="container flex py-12 overflow-hidden">
         <div>
           <h5>Company Director</h5>
           <h2>Gareth Davies</h2>

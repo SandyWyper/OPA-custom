@@ -1,16 +1,14 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import HeaderSpace from "./headerSpace"
 import HeroCarousel from "./heroCarousel"
 
 const Hero = () => {
   return (
-    <section className={`hero-container`}>
-      <HeaderSpace />
-      <div className="container flex items-center justify-center mb-16 md:mr-36">
-        <div className="md:max-w-4xl">
-          <div className="md:pt-16">
-            <div className="pb-8 mx-auto md:mx-0 md:mr-16">
+    <section className={`hero-container lg:flex lg:flex-col`}>
+      <div className="container mb-16 lg:items-center lg:justify-center lg:flex lg:h-full lg:flex-grow">
+        <div className="mx-auto mb-8 md:max-w-lg">
+          <div className="pt-10">
+            <div className="pb-8 mx-auto md:mx-0 lg:mr-16">
               <StaticImage
                 className={`mx-6 md:mx-0 max-w-sm`}
                 src={`../images/Logo-text.png`}
@@ -20,12 +18,14 @@ const Hero = () => {
           </div>
           <div className="text-center md:text-left">
             <h2 className="mb-0 text-xl text-white md:max-w-3xl">
-              OPA provides planning and consultancy services for domestic and
+              OPA provide planning and consultancy services for domestic and
               commercial clients.
             </h2>
           </div>
         </div>
-        <HeroCarousel />
+        <div className="max-w-screen md:max-w-md md:mx-auto lg:w-3/5 lg:p-12 lg:max-w-none">
+          <HeroCarousel />
+        </div>
       </div>
     </section>
   )

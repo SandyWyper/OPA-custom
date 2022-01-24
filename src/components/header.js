@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import useScrollPosition from "../lib/useScrollPosition"
 import LogoImg from "../images/OPA.png"
-// import { useSpring, animated } from "react-spring"
+import { useSpring, animated, config } from "react-spring"
 import { toggleMenuCollapse } from "../lib/toggleMenuCollapse"
+import { useHover } from "../lib/useHover"
+import useMeasure from "react-use-measure"
 
 const NavItem = ({ children, path, screen, classes }) => (
   <li
     className={
-      screen === "desktop" ? `flex h-full items-center ml-4 ${classes}` : ``
+      screen === "desktop" ? `flex h-full items-center ${classes} ml-12` : ``
     }
   >
     <Link to={path} className={`font-semibold text-lg`}>
@@ -18,10 +20,20 @@ const NavItem = ({ children, path, screen, classes }) => (
 )
 
 const Header = ({ links }) => {
+  const [hoverRef, isHovered] = useHover()
+  const [ref, bounds] = useMeasure()
   const projects = links.allContentfulProject.nodes
   // Mobile nav open or not state
   const [isOpen, setIsOpen] = useState(false)
+
   const [isScrollTop, setIsScrollTop] = useState(true)
+
+  const dropDownSpring = useSpring({
+    to: {
+      height: isHovered ? `${bounds.height}px` : `0px`,
+    },
+    config: { friction: 10, mass: 6, tension: 900, clamp: true },
+  })
 
   useScrollPosition(
     ({ currPos }) => {
@@ -33,10 +45,6 @@ const Header = ({ links }) => {
     undefined,
     100
   )
-
-  useEffect(() => {
-    console.log("is scroll top = ", isScrollTop)
-  }, [isScrollTop])
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50`}>
@@ -55,25 +63,28 @@ const Header = ({ links }) => {
             className={`hidden md:flex justify-between items-stretch text-white font-semibold tracking-wider`}
           >
             <ul className={`flex items-center`}>
-              <NavItem path="/services" screen="desktop" classes="mr-4">
+              <NavItem path="/" screen="desktop">
+                home
+              </NavItem>
+              <NavItem path="/services" screen="desktop">
                 services
               </NavItem>
               <li
-                className={`relative down-chev nav-trigger flex h-full items-center text-white`}
+                className={`relative  ml-12 down-chev nav-trigger flex h-full items-center text-white`}
+                ref={hoverRef}
               >
                 <button className={`font-semibold text-lg pr-4`}>
                   projects
                 </button>
-                <ul className={`nav-dropdown`}>
-                  {projects.map((each, i) => (
-                    <li
-                      key={each.slug + `-` + i}
-                      className="relative block my-2"
-                    >
-                      <Link to={`/${each.slug}`}>{each.title}</Link>
-                    </li>
-                  ))}
-                </ul>
+                <animated.div className={`nav-dropdown`} style={dropDownSpring}>
+                  <ul ref={ref}>
+                    {projects.map((each, i) => (
+                      <li key={each.slug + `-` + i} className="py-4">
+                        <Link to={`/${each.slug}`}>{each.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </animated.div>
               </li>
               <NavItem path="/contact" screen="desktop">
                 contact
@@ -86,7 +97,7 @@ const Header = ({ links }) => {
             } z-10 flex flex-col bg-cream pt-2 pb-8`}
           >
             <ul className="container">
-              <NavItem path="/home" screen="mobile">
+              <NavItem path="/" screen="mobile">
                 home
               </NavItem>
               <NavItem path="/services" screen="mobile">

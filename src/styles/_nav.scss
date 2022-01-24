@@ -5,11 +5,7 @@
   right: 0;
   top: 100%;
   overflow: hidden;
-  height: 0%;
   transition: height 0.15s ease-out;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-evenly;
   padding: 0 1rem;
   width: max-content;
   background-color: rgba(39, 39, 39, 0.93);
@@ -19,22 +15,14 @@
   cursor: pointer;
 }
 
-.nav-trigger:hover {
-  .nav-dropdown {
-    height: 100%;
-  }
-}
-
 .down-chev {
   position: relative;
   margin-right: 15px;
-  // z-index: -1;
 }
+
 .down-chev:after {
-  // transition: transform 0.2s ease;
-  // transform-origin: center;
   position: absolute;
-  right: -20px;
+  right: -5px;
   top: 52%;
   content: "";
   transform: translateY(-50%);

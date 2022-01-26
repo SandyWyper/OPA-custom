@@ -1,6 +1,8 @@
 import React from "react"
 import Layout from "../components/layout"
 import ContactForm from "../components/contactForm"
+import PhoneIcon from "../components/SvgCall.js"
+import MailIcon from "../components/SvgMail.js"
 
 const Contact = () => {
   return (
@@ -20,8 +22,27 @@ openGraph={{
 }}
 /> */}
       <section className="page-wrapper">
-        <div className={`container py-32 `}>
-          <div className="bg-white md:grid md:grid-cols-2 ">
+        <div className={`md:container pt-32 `}>
+          <div className="px-4 pt-12 lg:px-8 pb-52 bg-cream lg:grid lg:grid-cols-2">
+            <div className="mb-8">
+              <h1>Get in touch</h1>
+              <p className="max-w-md mb-6">
+                Please get in touch and we will get back to you as quickly as
+                possible.
+              </p>
+              <div className="flex items-center mb-6">
+                <MailIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-green" />
+                <p className="mb-0">
+                  <a href="mailto:dsfasd@asdfasd.com.uk">garerth@opa.co.uk</a>
+                </p>
+              </div>
+              <div className="flex">
+                <PhoneIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-green" />
+                <div className="flex items-center">
+                  <p className="mb-0 ">12-3904792384</p>
+                </div>
+              </div>
+            </div>
             <ContactForm />
           </div>
         </div>

@@ -73,9 +73,11 @@ const CarbonCounter = () => {
   })
 
   return (
-    <div ref={observe} className={`py-12 `}>
+    <div ref={observe} className={`pb-12 md:pb-32 bg-cream`}>
       <div className="container">
-        <div className={`grid grid-cols-1 md:grid-cols-4`}>
+        <div
+          className={`max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4  py-12`}
+        >
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (
             <Item
               data={node}

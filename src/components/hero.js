@@ -4,17 +4,17 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const Hero = () => {
   return (
-    <section className={`min-h-screen lg:flex lg:flex-col`}>
+    <section className={`min-h-screen flex flex-col`}>
       <StaticImage
         src={`../images/solar+wind.JPG`}
         alt="XXXXX"
         className="absolute inset-0 z-0"
       />
       <div className="hero-overlay" />
-      <div className="container relative lg:items-center lg:justify-start lg:flex lg:h-full lg:flex-grow">
+      <div className="container relative flex items-center justify-start flex-grow h-full">
         <div className="z-20 mb-8 md:max-w-lg">
           <div className="pt-10">
-            <div className="pb-8 ml-12 lg:mr-16">
+            <div className="pb-8 lg:ml-12 lg:mr-16">
               <StaticImage
                 className={` md:mx-0 max-w-sm`}
                 src={`../images/Main-Text-Only-White.png`}

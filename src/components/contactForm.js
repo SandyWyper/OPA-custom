@@ -52,7 +52,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div className="p-4">
+      <div className="">
         <p>{this.props.prompt}</p>
         <form
           className="w-full max-w-xl"
@@ -118,7 +118,7 @@ class ContactForm extends Component {
               <input
                 type="reset"
                 value="Reset"
-                className="w-full px-4 py-2 font-bold shadow cursor-pointer text-navy bg-cream hover:opacity-75 focus:outline-none focus:bg-gray-900 focus:text-white"
+                className="w-full px-4 py-2 font-bold border cursor-pointer border-navy text-navy bg-cream hover:opacity-75 focus:outline-none focus:bg-gray-900 focus:text-white"
               />
             </div>
           </div>

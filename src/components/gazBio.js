@@ -3,12 +3,20 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const GazBio = () => {
   return (
-    <div className={`py-12 bg-navy text-white`}>
-      <div className="container flex py-12 overflow-hidden">
-        <div>
-          <h5>Company Director</h5>
-          <h2>Gareth Davies</h2>
-          <p>
+    <div className={`py-12 bg-navy`}>
+      <div className="container py-12 overflow-hidden lg:flex lg:flex-row-reverse lg:items-center">
+        <div className="flex-none mx-auto mb-12 w-max lg:w-1/3">
+          <StaticImage
+            className={`max-w-sm rounded-full`}
+            src={`../images/gaz.jpg`}
+            alt="XXXXX"
+            layout={`constrained`}
+          />
+        </div>
+        <div className="lg:pr-12">
+          <h5 className="text-white">Company Director</h5>
+          <h2 className="text-white">Gareth Davies</h2>
+          <p className="text-white">
             Since graduating from Plymouth University with an MSc in Marine
             Renewable Energy Gareth has worked for a leading national renewable
             energy company. Where he led their planning and project management
@@ -31,14 +39,6 @@ const GazBio = () => {
             economy so expect ideas, suggestions and opportunities for
             collaboration if you decide to partner with Gareth on your journey.
           </p>
-        </div>
-        <div className="flex-none">
-          <StaticImage
-            className={`max-w-sm rounded-full`}
-            src={`../images/gaz.jpg`}
-            alt="XXXXX"
-            layout={`constrained`}
-          />
         </div>
       </div>
     </div>

@@ -1,11 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
-// import { GatsbySeo } from "gatsby-plugin-next-seo"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+// import { GatsbySeo } from "gatsby-plugin-next-seo"
 // import { BLOCKS } from "@contentful/rich-text-types"
 // import RichTextImageBlock from "../components/richTextImageBlock"
+import LatestProjects from "../components/latestProjects"
 
 const Project = props => {
   const {
@@ -14,14 +15,14 @@ const Project = props => {
     title,
     image,
     projectContent,
-    projectExcerpt,
+    location,
   } = props.data.contentfulProject
   const imageData = getImage(image)
 
   //parse the contents of the rich-text data
   const document = JSON.parse(projectContent.raw)
 
-  console.log(document)
+  // console.log(props.data.contentfulProject)
   // // functions and options for dealing with images used in the rich-text area
   // const getEntryWithId = entryId =>
   //   projectContent.references.filter(ref => ref.contentful_id === entryId)
@@ -75,39 +76,40 @@ const Project = props => {
         }}
       /> */}
       <section className="page-wrapper">
-        <div className={`container py-32 `}>
-          <div className="bg-white md:grid md:grid-cols-2 ">
-            <div className="mb-6 md:mb-0">
-              <GatsbyImage image={imageData} alt={image.title} />
+        <div className={`md:container pt-32`}>
+          <div className="bg-cream pb-52">
+            <div className="lg:grid lg:grid-cols-2">
+              <div className="mb-6 lg:mb-0">
+                <GatsbyImage image={imageData} alt={image.title} />
+              </div>
+              <div className="px-4 lg:p-8">
+                <h1 className="">{title}</h1>
+                <h3 className="inline-block border-b text-navy border-navy">
+                  Installed Capacity
+                </h3>
+                <h5 className="mb-6">
+                  {amountCarbonOffsetPerAnum}
+                  &nbsp;<span>kWhrs</span>
+                </h5>
+                <h3 className="inline-block border-b text-navy border-navy">
+                  Power Supply
+                </h3>
+                <h5 className="mb-6">{amountEnergyGeneratedPerAnum}&nbsp;</h5>
+                <h3 className="inline-block border-b text-navy border-navy">
+                  Location
+                </h3>
+                <h5 className="mb-6">{location}&nbsp;</h5>
+              </div>
             </div>
-            <div className="md:pl-4">
-              <h1 className="text-navy">{title}</h1>
-              <h3 className="inline-block border-b text-navy border-navy">
-                Installed Capacity
-              </h3>
-              <h5 className="mb-6">
-                {amountCarbonOffsetPerAnum}
-                &nbsp;<span>kWhrs</span>
-              </h5>
-              <h3 className="inline-block border-b text-navy border-navy">
-                Power Supply
-              </h3>
-              <h5 className="mb-6">{amountEnergyGeneratedPerAnum}&nbsp;</h5>
-              <h3 className="inline-block border-b text-navy border-navy">
-                Location
-              </h3>
-              {/* <h5 className="mb-6">
-                {amountEnergyGeneratedPerAnum}&nbsp;
-              </h5> */}
-            </div>
-          </div>
-          <div className="py-12 bg-white">
-            <div className="mx-auto md:max-w-3xl">
-              {documentToReactComponents(document)}
+            <div className="px-4 py-2 md:py-12">
+              <div className="mx-auto md:max-w-3xl">
+                {documentToReactComponents(document)}
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <LatestProjects />
     </Layout>
   )
 }
@@ -119,6 +121,7 @@ export const data = graphql`
     contentfulProject(slug: { eq: $currentPage }) {
       id
       title
+      location
       amountCarbonOffsetPerAnum
       amountEnergyGeneratedPerAnum
       slug

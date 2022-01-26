@@ -23,6 +23,7 @@ const Layout = ({ children }) => {
         <Header links={links} />
         <main>{children}</main>
       </div>
+      {/* <div className=" footer-space"></div> */}
       <Footer links={links} />
     </div>
   )

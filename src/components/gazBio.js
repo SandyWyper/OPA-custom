@@ -5,7 +5,7 @@ const GazBio = () => {
   return (
     <div className={`py-12 bg-navy`}>
       <div className="container py-12 overflow-hidden lg:flex lg:flex-row-reverse lg:items-center">
-        <div className="flex-none mx-auto mb-12 w-max lg:w-1/3">
+        <div className="mx-auto mb-12 md:flex-none md:w-max lg:w-1/3">
           <StaticImage
             className={`max-w-sm rounded-full`}
             src={`../images/gaz.jpg`}

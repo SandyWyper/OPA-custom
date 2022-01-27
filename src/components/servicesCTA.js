@@ -5,9 +5,9 @@ import { StaticImage } from "gatsby-plugin-image"
 const ServicesCTA = () => {
   return (
     <section className="bg-cream ">
-      <div className="container py-10 md:py-32">
+      <div className="py-10 md:container md:py-32">
         <div className="md:flex md:items-center">
-          <div className="pl-6 border-l-4 md:w-1/2 md:pr-16 border-navy">
+          <div className="px-4 mb-12 border-l-4 md:mb-0 md:pl-6 md:w-1/2 md:pr-16 md:border-navy">
             <div className="mb-12">
               <p>
                 OPA is at the forefront of planning for a lower carbon future.

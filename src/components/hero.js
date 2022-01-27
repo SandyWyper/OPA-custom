@@ -5,11 +5,14 @@ import { StaticImage } from "gatsby-plugin-image"
 const Hero = () => {
   return (
     <section className={`min-h-screen flex flex-col`}>
-      <StaticImage
-        src={`../images/solar+wind.JPG`}
-        alt="XXXXX"
-        className="absolute inset-0 z-0"
-      />
+      <div className="absolute inset-0 z-0 h-full">
+        <StaticImage
+          src={`../images/solar+wind.JPG`}
+          alt="XXXXX"
+          fit="cover"
+          className="w-full h-full"
+        />
+      </div>
       <div className="hero-overlay" />
       <div className="container relative flex items-center justify-start flex-grow h-full">
         <div className="z-20 mb-8 md:max-w-lg">
@@ -23,20 +26,12 @@ const Hero = () => {
             </div>
           </div>
           <div className="text-center md:text-left">
-            <h2 className="pl-12 mb-0 text-xl text-white md:max-w-3xl">
+            <h2 className="mb-0 text-xl text-white md:pl-12 md:max-w-3xl">
               OPA provide planning and consultancy services for domestic and
               commercial clients.
             </h2>
           </div>
         </div>
-        {/* <div className="max-w-screen md:max-w-md md:mx-auto lg:w-3/5 lg:flex-col lg:flex lg:flex-grow lg:max-w-none lg:h-full"> */}
-        {/* <StaticImage
-            src={`../images/solar+wind.JPG`}
-            alt="XXXXX"
-            className="object-cover"
-          /> */}
-        {/* <HeroCarousel /> */}
-        {/* </div> */}
       </div>
     </section>
   )

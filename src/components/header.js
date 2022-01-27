@@ -119,7 +119,7 @@ const Header = ({ links }) => {
                 <ul>
                   {projects.map((each, i) => (
                     <li key={each.slug + `-` + i}>
-                      <Link to={each.slug}>{each.title}</Link>
+                      <Link to={`/${each.slug}`}>{each.title}</Link>
                     </li>
                   ))}
                 </ul>

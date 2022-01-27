@@ -85,7 +85,8 @@
   content: "";
   inset: 0;
   opacity: 0;
-  background: url("./assets/contour.svg") no-repeat center top / cover #475451;
+  background: no-repeat url("./assets/topo-white-2.svg") center top / cover
+    #475451;
   transition: opacity 0.7s ease;
 }
 

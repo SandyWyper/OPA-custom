@@ -26,7 +26,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="">
-            <p className="mb-0 mr-16 font-medium text-white md:text-xl md:pl-12 md:max-w-3xl">
+            <p className="mb-0 mr-16 font-medium text-left text-white md:text-xl md:pl-12 md:max-w-3xl">
               OPA provide planning and consultancy services for domestic and
               commercial clients.
             </p>

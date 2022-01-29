@@ -8,7 +8,7 @@ const GazBio = () => {
         <div className="mx-auto mb-12 md:flex-none md:w-max lg:w-1/3">
           <StaticImage
             className={`max-w-sm rounded-full`}
-            src={`../images/Gareth-pic.jpg`}
+            src={`../images/gaz-square.jpg`}
             alt="XXXXX"
             layout={`constrained`}
           />

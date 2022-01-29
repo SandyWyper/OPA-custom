@@ -9,6 +9,7 @@ const ServicesCTA = () => {
         <div className="md:flex md:items-center">
           <div className="px-4 mb-12 border-l-4 md:mb-0 md:pl-6 md:w-1/2 md:pr-16 md:border-navy">
             <div className="mb-12">
+              <h2>One Planet Associates</h2>
               <p>
                 OPA is at the forefront of planning for a lower carbon future.
                 We will advise and steer clients through the complex planning

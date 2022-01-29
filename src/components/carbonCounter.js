@@ -27,13 +27,13 @@ const Item = ({ data, isInView }) => {
   })
 
   return (
-    <div className="px-8 text-center lg:flex-none">
-      <div className="px-10 py-6">
-        <GatsbyImage image={image} alt={alt} className="w-40" />
+    <div className="w-1/2 mb-8 text-center md:w-auto md:px-8 lg:flex-none">
+      <h5 className="mb-2">{label}</h5>
+      <div className="mb-2 ">
+        <GatsbyImage image={image} alt={alt} className="w-24 md:w-32" />
       </div>
-      <h5>{label}</h5>
       <div className="flex items-end justify-center">
-        <animated.h3 className={`mr-2 mb-0`}>
+        <animated.h3 className={`mr-2 mb-0 font-bold`}>
           {interpolateAndFloor(props.val)}
         </animated.h3>
         <h4 className="mb-1">{unit}</h4>
@@ -73,11 +73,9 @@ const CarbonCounter = () => {
   })
 
   return (
-    <div ref={observe} className={`pb-12 md:pb-32 bg-cream`}>
+    <div ref={observe} className={`pb-12 md:pb-24 bg-cream`}>
       <div className="container">
-        <div
-          className={`max-w-5xl mx-auto flex  flex-wrap justify-evenly py-12`}
-        >
+        <div className={`max-w-5xl mx-auto flex flex-wrap justify-evenly`}>
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (
             <Item
               data={node}

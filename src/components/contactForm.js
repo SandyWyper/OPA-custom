@@ -100,7 +100,7 @@ class ContactForm extends Component {
             <textarea
               name="message"
               id="message"
-              rows="4"
+              rows="14"
               className="w-full px-4 py-2 leading-tight border-2 appearance-none focus:outline-none focus:border-gray-600"
               onChange={this.handleChange}
               required

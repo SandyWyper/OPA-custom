@@ -10,10 +10,12 @@ import useMeasure from "react-use-measure"
 const NavItem = ({ children, path, screen, classes }) => (
   <li
     className={
-      screen === "desktop" ? `flex h-full items-center ${classes} ml-12` : ``
+      screen === "desktop"
+        ? `flex h-full items-center ${classes} ml-12 text-xl font-semibold`
+        : `text-4xl text-turquois py-4`
     }
   >
-    <Link to={path} className={`font-semibold text-lg`}>
+    <Link to={path} className={``}>
       {children}
     </Link>
   </li>
@@ -94,7 +96,7 @@ const Header = ({ links }) => {
           <nav
             className={`mobile-nav ${
               isOpen && "is-open shadow-lg"
-            } z-10 flex flex-col bg-cream pt-2 pb-8`}
+            } z-10 flex flex-col pt-2 pb-8`}
           >
             <ul className="container">
               <NavItem path="/" screen="mobile">
@@ -103,10 +105,15 @@ const Header = ({ links }) => {
               <NavItem path="/services" screen="mobile">
                 services
               </NavItem>
-              <li className={`relative down-chev`}>
+              <li id="mob-projects-tab" className={`relative down-chev-mob`}>
                 <button
-                  className={`font-semibold text-lg w-full text-left`}
-                  onClick={() => toggleMenuCollapse("#mob-projects")}
+                  className={`text-4xl text-turquois py-4 w-full text-left`}
+                  onClick={() =>
+                    toggleMenuCollapse(
+                      "#mob-projects-content",
+                      "#mob-projects-tab"
+                    )
+                  }
                   aria-label="Expand menu"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -115,10 +122,13 @@ const Header = ({ links }) => {
                   projects
                 </button>
               </li>
-              <div id="mob-projects" className={`mob-nav-dropdown`}>
+              <div id="mob-projects-content" className={`mob-nav-dropdown`}>
                 <ul>
                   {projects.map((each, i) => (
-                    <li key={each.slug + `-` + i}>
+                    <li
+                      key={each.slug + `-` + i}
+                      className="py-2 text-turquois"
+                    >
                       <Link to={`/${each.slug}`}>{each.title}</Link>
                     </li>
                   ))}

@@ -8,7 +8,7 @@ const GazBio = () => {
         <div className="mx-auto mb-12 md:flex-none md:w-max lg:w-1/3">
           <StaticImage
             className={`max-w-sm rounded-full`}
-            src={`../images/gaz.jpg`}
+            src={`../images/Gareth-pic.jpg`}
             alt="XXXXX"
             layout={`constrained`}
           />
@@ -25,19 +25,22 @@ const GazBio = () => {
             the local authorities first 100m wind turbine and developing a
             pipeline of solar projects along with analysing and advising on some
             more innovative low carbon solutions and ideas such as geothermal
-            and hydrogen. Gareth has now set up One Planet Associates Ltd, a
-            planning and consultancy service with a conscience. Gareth has
-            gained over a decade of experience working within the renewable
-            energy and planning sector. Gareth is well-versed in taking
-            challenging projects from concept through the approvals process and
-            on to development. Whether renewable energy, domestic or commercial
+            and hydrogen.
+          </p>
+          <p className="text-white">
+            Gareth set up One Planet Associates Ltd, a planning and consultancy
+            service with a conscience in September 2019. Gareth has gained over
+            a decade of experience working within the renewable energy and
+            planning sector. Gareth is well-versed in taking challenging
+            projects from concept through the approvals process and on to
+            development. whether renewable energy, domestic or commercial
             planning, Gareth has a breadth of experience to assist in any
-            development. Some of the most exciting projects Gareth’s worked on
+            development. Some of the most exiting projects Gareth’s worked on
             have been bespoke and unique residential developments. However, be
             warned, Gareth has a passion for reducing reliance on fossil fuels
             and exploring every opportunity to transition to a lower carbon
-            economy so expect ideas, suggestions and opportunities for
-            collaboration if you decide to partner with Gareth on your journey.
+            economy so expect ideas and suggestion and opportunities for
+            collaboration if you decide to partner OPA on your journey.
           </p>
         </div>
       </div>

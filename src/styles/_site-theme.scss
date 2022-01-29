@@ -1,12 +1,3 @@
-// .hero-container {
-//   position: relative;
-//   overflow: hidden;
-//   padding-top: 96px;
-//   min-height: 100vh;
-//   background: url("./assets/contour.svg") no-repeat center / cover,
-//     linear-gradient(180deg, #475451 50%, #f1ede5 100%);
-// }
-
 .page-wrapper {
   position: relative;
   z-index: 0;
@@ -15,48 +6,13 @@
       top/100% 1000px,
     #f1ede5;
   @media (min-width: 768px) {
-    background: no-repeat url("./assets/topo-white-2.svg") top,
+    background: no-repeat top/100% auto url("./assets/topo-white-2.svg"),
       linear-gradient(180deg, rgba(71, 84, 81, 1) 45%, #f1ede5 100%) no-repeat
         top/100% 800px,
       #f1ede5;
   }
-  // &:before,
-  // :after {
-  //   position: absolute;
-  //   content: "";
-  //   width: 100%;
-  //   height: 100%;
-  //   top: 0;
-  //   left: 0;
-  //   z-index: -1;
-  // }
-  // &:before {
-  //   background-color: white;
-  //   background: url("./assets/contour.svg") no-repeat center -200px,
-  //     linear-gradient(180deg, rgba(71, 84, 81, 0.8) 45%, #f1ede5 100%) no-repeat,
-  //     #f1ede5;
-  //   background-size: 180%;
-  //   background-position: top;
-  //   @media (min-width: 768px) {
-  //     background-size: 100% 1000px;
-  //     background-position: top -200px center;
-  //   }
-  // }
 }
-
 .footer {
-  // position: fixed;
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
-  // z-index: -1;
-  background: #043042;
+  background: no-repeat url("./assets/contour-grey.svg") center / cover,
+    var(--navy);
 }
-
-// .footer-space {
-//   padding-bottom: 342px;
-//   z-index: -10;
-// }
-// .hero-image {
-//   background: no-repeat url("../images/solar+wind.JPG") top;
-// }

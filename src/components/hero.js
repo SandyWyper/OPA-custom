@@ -19,17 +19,17 @@ const Hero = () => {
           <div className="pt-10">
             <div className="pb-8 lg:ml-12 lg:mr-16">
               <StaticImage
-                className={` md:mx-0 max-w-sm`}
+                className={`mr-20 md:mx-0 max-w-sm`}
                 src={`../images/Main-Text-Only-White.png`}
                 alt="XXXXX"
               />
             </div>
           </div>
-          <div className="text-center md:text-left">
-            <h2 className="mb-0 text-xl text-white md:pl-12 md:max-w-3xl">
+          <div className="">
+            <p className="mb-0 mr-16 font-medium text-white md:text-xl md:pl-12 md:max-w-3xl">
               OPA provide planning and consultancy services for domestic and
               commercial clients.
-            </h2>
+            </p>
           </div>
         </div>
       </div>

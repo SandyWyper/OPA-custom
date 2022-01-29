@@ -77,28 +77,24 @@ const Project = props => {
       /> */}
       <section className="page-wrapper">
         <div className={`md:container pt-32`}>
-          <div className="bg-cream pb-52">
+          <div className="pb-32 bg-cream">
             <div className="lg:grid lg:grid-cols-2">
               <div className="mb-6 lg:mb-0">
                 <GatsbyImage image={imageData} alt={image.title} />
               </div>
               <div className="px-4 lg:p-8">
                 <h1 className="">{title}</h1>
-                <h3 className="inline-block border-b text-navy border-navy">
-                  Installed Capacity
-                </h3>
-                <h5 className="mb-6">
+                <h5 className="inline-block text-navy">Installed Capacity:</h5>
+                <h4 className="mb-6 ml-4">
                   {amountCarbonOffsetPerAnum}
                   &nbsp;<span>kWhrs</span>
-                </h5>
-                <h3 className="inline-block border-b text-navy border-navy">
-                  Power Supply
-                </h3>
-                <h5 className="mb-6">{amountEnergyGeneratedPerAnum}&nbsp;</h5>
-                <h3 className="inline-block border-b text-navy border-navy">
-                  Location
-                </h3>
-                <h5 className="mb-6">{location}&nbsp;</h5>
+                </h4>
+                <h5 className="inline-block text-navy">Homes Powered:</h5>
+                <h4 className="mb-6 ml-4">
+                  {amountEnergyGeneratedPerAnum}&nbsp;
+                </h4>
+                <h5 className="inline-block text-navy">Location:</h5>
+                <h4 className="mb-6 ml-4">{location}&nbsp;</h4>
               </div>
             </div>
             <div className="px-4 py-2 md:py-12">

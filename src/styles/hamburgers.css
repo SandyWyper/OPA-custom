@@ -22,15 +22,15 @@
   z-index: 10;
 }
 .hamburger:hover {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .hamburger.is-active:hover {
-  opacity: 0.7;
+  opacity: 1;
 }
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-  background-color: #000;
+  background-color: var(--turquois);
 }
 
 .hamburger-box {
@@ -51,7 +51,7 @@
   width: 40px;
   height: 4px;
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 1px;
   position: absolute;
   transition-property: transform;
   transition-duration: 0.15s;

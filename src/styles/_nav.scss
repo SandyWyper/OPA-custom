@@ -10,31 +10,47 @@
   width: max-content;
   background-color: rgba(39, 39, 39, 0.93);
 }
+
 .nav-trigger {
   z-index: 20;
   cursor: pointer;
 }
 
-.down-chev {
+.down-chev,
+.down-chev-mob {
   position: relative;
   margin-right: 15px;
 }
 
-.down-chev:after {
+.down-chev:after,
+.down-chev-mob:after {
   position: absolute;
-  right: -5px;
-  top: 52%;
+  top: 50%;
   content: "";
-  transform: translateY(-50%);
-  background: url("./assets/triangle.svg");
-  background-size: contain;
-  background-position: center;
   width: 13px;
   height: 13px;
+  transition: transform 0.2s ease-in-out;
+  transform-origin: center;
 }
-// .down-chev:hover:after {
-//   transform: rotate(-90deg);
-// }
+
+.down-chev:after {
+  right: -15px;
+  top: 45%;
+  background: url("./assets/triangle.svg") center / contain;
+}
+
+.down-chev-mob:after {
+  right: 0;
+  top: 45%;
+  width: 18px;
+  height: 18px;
+  background: url("./assets/triangle-turq.svg") center / contain;
+}
+
+.down-chev-mob.is-open:after,
+.down-chev.is-open:after {
+  transform: rotate(-180deg);
+}
 
 .overlay {
   position: fixed;
@@ -61,6 +77,13 @@
   width: 100%;
   padding: 4rem 0;
   height: 100vh;
+  overflow-y: scroll;
+  background: no-repeat url("./assets/contour-grey.svg") center / cover,
+    var(--navy);
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
 }
 
 .mobile-nav.is-open {
@@ -85,9 +108,12 @@
   content: "";
   inset: 0;
   opacity: 0;
-  background: no-repeat url("./assets/topo-white-2.svg") center top / cover
-    #475451;
+  background: no-repeat top/180% auto url("./assets/topo-white-2.svg"), #475451;
   transition: opacity 0.7s ease;
+  @media (min-width: 768px) {
+    background: no-repeat top/100% auto url("./assets/topo-white-2.svg"),
+      #475451;
+  }
 }
 
 .nav-background:after {
@@ -100,8 +126,5 @@
 }
 
 .is-active.nav-background:before {
-  opacity: 0.9;
-}
-.is-active.nav-background:after {
-  backdrop-filter: blur(3px);
+  opacity: 1;
 }

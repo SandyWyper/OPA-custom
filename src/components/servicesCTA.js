@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 const ServicesCTA = () => {
   return (
     <section className="bg-cream ">
-      <div className="py-10 md:container md:py-32">
+      <div className="py-10 md:container md:pt-32 md:pb-24">
         <div className="md:flex md:items-center">
           <div className="px-4 mb-12 border-l-4 md:mb-0 md:pl-6 md:w-1/2 md:pr-16 md:border-navy">
             <div className="mb-12">

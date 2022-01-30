@@ -1,10 +1,14 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ContactForm from "../components/contactForm"
 import PhoneIcon from "../components/SvgCall.js"
 import MailIcon from "../components/SvgMail.js"
 
-const Contact = () => {
+const Contact = ({ data }) => {
+  const { emailAddress, phoneNumber } = data.contentfulContactPage || undefined
+  const { pageTitle, childContentfulContactPageIntroTextTextNode } =
+    data.contentfulContactPage
   return (
     <Layout>
       {/* <GatsbySeo
@@ -25,23 +29,28 @@ openGraph={{
         <div className={`md:container pt-32`}>
           <div className="px-4 pt-12 lg:px-8 pb-52 bg-cream lg:grid lg:grid-cols-2">
             <div className="mb-8">
-              <h1>Get in touch</h1>
-              <p className="max-w-md mb-6 text-lg">
-                Please get in touch and we will get back to you as quickly as
-                possible.
+              <h1>{pageTitle}</h1>
+              <p className="pr-8 mb-6 text-lg ">
+                {childContentfulContactPageIntroTextTextNode.introText}
               </p>
-              <div className="flex items-center mb-6">
-                <MailIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-navy" />
-                <p className="mb-0">
-                  <a href="mailto:dsfasd@asdfasd.com.uk">garerth@opa.co.uk</a>
-                </p>
-              </div>
-              <div className="flex">
-                <PhoneIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-navy" />
-                <div className="flex items-center">
-                  <p className="mb-0 ">12-3904792384</p>
+              {emailAddress && (
+                <div className="flex items-center mb-6">
+                  <MailIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-navy" />
+                  <p className="mb-0">
+                    <a href={`mailto:${emailAddress}`}>{emailAddress}</a>
+                  </p>
                 </div>
-              </div>
+              )}
+              {phoneNumber && (
+                <div className="flex">
+                  <PhoneIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-navy" />
+                  <div className="flex items-center">
+                    <a className="mb-0 font-light" href={`tel:${phoneNumber}`}>
+                      {phoneNumber}
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
             <ContactForm />
           </div>
@@ -52,3 +61,16 @@ openGraph={{
 }
 
 export default Contact
+
+export const data = graphql`
+  query {
+    contentfulContactPage {
+      childContentfulContactPageIntroTextTextNode {
+        introText
+      }
+      pageTitle
+      phoneNumber
+      emailAddress
+    }
+  }
+`

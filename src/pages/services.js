@@ -3,16 +3,20 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import handlize from "../lib/handlize"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-import { StaticImage } from "gatsby-plugin-image"
 import SvgLink from "../components/svgLink"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 // import { GatsbySeo } from "gatsby-plugin-next-seo"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-// import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 
 const Services = ({ data }) => {
   const services = data.allContentfulService.nodes
+  const { servicesHeroImage, servicesIntroText, servicesTitle } =
+    data.contentfulServicePage
 
+  const imageData = getImage(servicesHeroImage)
+  //parse the contents of the rich-text data
+  const introCopy = JSON.parse(servicesIntroText.raw)
   return (
     <Layout>
       {/* <GatsbySeo
@@ -31,31 +35,21 @@ const Services = ({ data }) => {
   /> */}
       <section className="page-wrapper">
         <div className={`md:container py-32 `}>
-          <div className={`bg-cream `}>
+          <div className={`bg-cream`}>
             <div className="relative">
-              <StaticImage
+              <GatsbyImage
                 className={`max-h-96 object-cover object-top`}
-                src={`../images/DJI_0058.JPG`}
-                alt="XXXXX"
+                image={imageData}
+                alt={servicesHeroImage.title}
               />
               <div className="absolute bottom-0 left-0 hidden p-8 bg-cream lg:block">
-                <h1 className="mb-0 text-navy">OPA Services</h1>
+                <h1 className="mb-0 text-navy">{servicesTitle}</h1>
               </div>
             </div>
             <div className="px-4 py-16 lg:px-8 lg:grid lg:grid-cols-2">
               <div className="mb-6 lg:mb-0 lg:pr-4">
-                <h1 className="text-navy lg:hidden">OPA Services</h1>
-                <p className="">
-                  OPA can manage the whole planning process, from early-stage
-                  site conception and preparation of pre-planning documents
-                  through to securing decisions and discharging conditions. OPA
-                  pride ourselves on managing stakeholders effectively and
-                  ensuring a transparent service from start to finish. Although
-                  we are solution focused and able to achieve results at any
-                  stage of development, the earlier OPA gets involved the more
-                  effective we can be, saving clients costs and avoiding
-                  complex, time consuming situations.
-                </p>
+                <h1 className="text-navy lg:hidden">{servicesTitle}</h1>
+                {documentToReactComponents(introCopy)}
               </div>
               <div className="lg:pl-12 lg:pr-8">
                 <div>
@@ -117,6 +111,16 @@ export const data = graphql`
         }
       }
       totalCount
+    }
+    contentfulServicePage {
+      servicesHeroImage {
+        gatsbyImageData
+        title
+      }
+      servicesIntroText {
+        raw
+      }
+      servicesTitle
     }
   }
 `

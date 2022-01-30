@@ -1,14 +1,15 @@
 import React from "react"
-import { StaticImage } from "gatsby-plugin-image"
-// import HeroCarousel from "./heroCarousel"
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const Hero = () => {
+const Hero = ({ image, text }) => {
+  const imageData = getImage(image)
+
   return (
     <section className={`min-h-screen flex flex-col`}>
       <div className="absolute inset-0 z-0 h-full">
-        <StaticImage
-          src={`../images/solar+wind.JPG`}
-          alt="XXXXX"
+        <GatsbyImage
+          image={imageData}
+          alt={image.title}
           fit="cover"
           className="w-full h-full"
         />
@@ -21,14 +22,13 @@ const Hero = () => {
               <StaticImage
                 className={`mr-20 md:mx-0 max-w-sm`}
                 src={`../images/Main-Text-Only-White.png`}
-                alt="XXXXX"
+                alt="One Planet Associates"
               />
             </div>
           </div>
           <div className="">
             <p className="mb-0 mr-16 font-medium text-left text-white md:text-xl md:pl-12 md:max-w-3xl">
-              OPA provide planning and consultancy services for domestic and
-              commercial clients.
+              {text.heroText}
             </p>
           </div>
         </div>

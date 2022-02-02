@@ -3,12 +3,14 @@ import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-// import { GatsbySeo } from "gatsby-plugin-next-seo"
-// import { BLOCKS } from "@contentful/rich-text-types"
-// import RichTextImageBlock from "../components/richTextImageBlock"
+import { GatsbySeo } from "gatsby-plugin-next-seo"
+import { BLOCKS } from "@contentful/rich-text-types"
+import RichTextImageBlock from "../components/richTextImageBlock"
 import LatestProjects from "../components/latestProjects"
+import { StaticImage } from "gatsby-plugin-image"
+import { get } from "lodash"
 
-const Project = props => {
+const Project = ({ data }) => {
   const {
     amountCarbonOffsetPerAnum,
     amountEnergyGeneratedPerAnum,
@@ -16,39 +18,39 @@ const Project = props => {
     image,
     projectContent,
     location,
-  } = props.data.contentfulProject
+    projectExcerpt,
+  } = data.contentfulProject
   const imageData = getImage(image)
-
+  console.log("project data", data)
   //parse the contents of the rich-text data
   const document = JSON.parse(projectContent.raw)
 
-  // console.log(props.data.contentfulProject)
-  // // functions and options for dealing with images used in the rich-text area
-  // const getEntryWithId = entryId =>
-  //   projectContent.references.filter(ref => ref.contentful_id === entryId)
+  // console.log(.data.contentfulProject)
+  // functions and options for dealing with images used in the rich-text area
+  const getEntryWithId = entryId =>
+    projectContent.references.filter(ref => ref.contentful_id === entryId)
 
-  // const options = {
-  //   renderNode: {
-  //     [BLOCKS.EMBEDDED_ENTRY]: node => {
-  //       const nodeData = getEntryWithId(node.data.target.sys.id)
-  //       const images = get(nodeData, "[0].images", undefined)
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
+        // const nodeData = getEntryWithId(node.data.target.sys.id)
+        // const images = get(nodeData, "[0].images", undefined)
 
-  //       const baseIndexForComponent = lightboxImageIndex
-  //       lightboxImageIndex = lightboxImageIndex + images.length
+        // const baseIndexForComponent = lightboxImageIndex
+        // lightboxImageIndex = lightboxImageIndex + images.length
 
-  //       images.forEach(image => {
-  //         elements.push({ src: image.resize.src, caption: image.title })
-  //       })
-
-  //       return (
-  //         <RichTextImageBlock
-  //           data={getEntryWithId(node.data.target.sys.id)}
-  //           baseIndex={baseIndexForComponent}
-  //         />
-  //       )
-  //     },
-  //   },
-  // }
+        // images.forEach(image => {
+        //   elements.push({ src: image.resize.src, caption: image.title })
+        // })
+        return (
+          <RichTextImageBlock
+            data={getEntryWithId(data.target.sys.id)}
+            // baseIndex={baseIndexForComponent}
+          />
+        )
+      },
+    },
+  }
   // const elements = [
   //   {
   //     src: `https:${titleImageLandscape.resize.src}`,
@@ -60,53 +62,83 @@ const Project = props => {
   //   },
   // ]
   return (
-    <Layout>
-      {/* <GatsbySeo
-        title="Ricky Richards Photography"
-        description="Ricky Richards Photography British Photo Journalist and Documentary photographer based in San Francisco USA"
+    <>
+      <GatsbySeo
+        description={projectExcerpt.projectExcerpt}
         openGraph={{
           images: [
             {
-              url: data.OGImage.sharingImage.resize.src,
-              width: data.OGImage.sharingImage.resize.width,
-              height: data.OGImage.sharingImage.resize.height,
-              alt: data.OGImage.sharingImage.title,
+              url: image.resize.src,
+              width: image.resize.width,
+              height: image.resize.height,
+              alt: image.title,
             },
           ],
         }}
-      /> */}
-      <section className="page-wrapper">
-        <div className={`md:container pt-32`}>
-          <div className="pb-32 bg-cream">
-            <div className="lg:grid lg:grid-cols-2">
-              <div className="mb-6 lg:mb-0">
-                <GatsbyImage image={imageData} alt={image.title} />
+      />
+      <Layout>
+        <section className="page-wrapper">
+          <div className={`md:container pt-32`}>
+            <div className="pb-32 bg-cream">
+              <div className="lg:grid lg:grid-cols-2">
+                <div className="mb-6 lg:mb-0">
+                  <GatsbyImage image={imageData} alt={image.title} />
+                </div>
+                <div className="px-4 lg:p-8">
+                  <h1 className="text-4xl text-navy lg:text-5xl">{title}</h1>
+                  <div className="mb-8 lg:mb-0">
+                    <div className="flex items-center mb-4 xl:mb-6">
+                      <StaticImage
+                        className={`w-12 mr-4`}
+                        src={`../images/green-power.png`}
+                        alt="Green energy icon"
+                      />
+                      <div>
+                        <h5 className="mb-0">Installed Capacity</h5>
+                        <p className="mb-0 text-lg">
+                          {amountCarbonOffsetPerAnum}
+                          &nbsp;<span>kWhrs</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center mb-4 xl:mb-6">
+                      <StaticImage
+                        className={`w-12 mr-4`}
+                        src={`../images/home-icon-2.png`}
+                        alt="Homes powered icon"
+                      />
+                      <div>
+                        <h5 className="mb-0">Homes Powered</h5>
+                        <p className="mb-0 text-lg">
+                          {amountEnergyGeneratedPerAnum}&nbsp;
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center mb-4 xl:mb-6">
+                      <StaticImage
+                        className={`w-12 mr-4`}
+                        src={`../images/map.png`}
+                        alt="Map pin icon"
+                      />
+                      <div>
+                        <h5 className="mb-0">Location</h5>
+                        <p className="mb-0 text-lg">{location}&nbsp;</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="px-4 lg:p-8">
-                <h1 className="">{title}</h1>
-                <h5 className="inline-block text-navy">Installed Capacity:</h5>
-                <h4 className="mb-6 ml-4">
-                  {amountCarbonOffsetPerAnum}
-                  &nbsp;<span>kWhrs</span>
-                </h4>
-                <h5 className="inline-block text-navy">Homes Powered:</h5>
-                <h4 className="mb-6 ml-4">
-                  {amountEnergyGeneratedPerAnum}&nbsp;
-                </h4>
-                <h5 className="inline-block text-navy">Location:</h5>
-                <h4 className="mb-6 ml-4">{location}&nbsp;</h4>
-              </div>
-            </div>
-            <div className="px-4 py-2 md:py-12">
-              <div className="mx-auto md:max-w-3xl">
-                {documentToReactComponents(document)}
+              <div className="px-4 py-2 md:py-12">
+                <div className="mx-auto md:max-w-3xl">
+                  {documentToReactComponents(document, options)}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <LatestProjects />
-    </Layout>
+        </section>
+        <LatestProjects />
+      </Layout>
+    </>
   )
 }
 
@@ -124,9 +156,19 @@ export const data = graphql`
       image {
         gatsbyImageData(quality: 80)
         title
+        resize(width: 1000) {
+          width
+          height
+          src
+        }
       }
       projectContent {
         raw
+        references {
+          gatsbyImageData
+          title
+          contentful_id
+        }
       }
       projectExcerpt {
         projectExcerpt

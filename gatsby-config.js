@@ -32,13 +32,19 @@ module.exports = {
           process.env.DEPLOY_CONTEXT === "preview" ? true : false,
         dangerouslySetAllPagesToNoFollow:
           process.env.DEPLOY_CONTEXT === "preview" ? true : false,
+        title: `One Planet Associates`,
         description: `OPA provides planning and consultancy services for domestic and commercial clients.`,
         openGraph: {
           type: "website",
           locale: "en_GB",
           url: "https://oneplanetassociates.com/",
           site_name: "One Planet Associates",
-          images: [{ url: "XXXXXXXXXXXXXXX", alt: "XXXXXXXXXXXXX" }],
+          images: [
+            {
+              url: "./src/images/Bigger-tighter-OPA.png",
+              alt: "One Planet Associates logo",
+            },
+          ],
         },
       },
     },
@@ -72,10 +78,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `One Planet Associates`,
+        short_name: `OPA`,
         start_url: `/`,
-        background_color: `#eaeaea`,
+        background_color: `#475451`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,

@@ -6,6 +6,7 @@ import { useSpring, animated } from "react-spring"
 import { toggleMenuCollapse } from "../lib/toggleMenuCollapse"
 import { useHover } from "../lib/useHover"
 import useMeasure from "react-use-measure"
+import { StaticImage } from "gatsby-plugin-image"
 
 const NavItem = ({ children, path, screen, classes }) => (
   <li
@@ -54,10 +55,15 @@ const Header = ({ links }) => {
         <div className={`container mx-auto flex justify-between items-stretch`}>
           <div>
             <Link to="/">
-              <img
+              {/* <img
                 src={LogoImg}
                 alt="One Planet Associates logo"
                 className="w-16 h-16 my-2 md:w-20 md:h-20"
+              /> */}
+              <StaticImage
+                className={`w-16 h-16 my-2 md:w-20 md:h-20`}
+                src={`../images/OPA.png`}
+                alt="One Planet Associates Logo"
               />
             </Link>
           </div>

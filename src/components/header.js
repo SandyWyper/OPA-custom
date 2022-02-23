@@ -12,7 +12,7 @@ const NavItem = ({ children, path, screen, classes }) => (
   <li
     className={
       screen === "desktop"
-        ? `flex h-full items-center ${classes} ml-12 text-xl font-semibold`
+        ? `flex h-full items-center ${classes} ml-12 text-xl font-normal`
         : `text-4xl text-turquois py-4`
     }
   >
@@ -81,9 +81,7 @@ const Header = ({ links }) => {
                 className={`relative  ml-12 down-chev nav-trigger flex h-full items-center text-white`}
                 ref={hoverRef}
               >
-                <button className={`font-semibold text-lg pr-4`}>
-                  projects
-                </button>
+                <button className={`text-lg pr-4`}>projects</button>
                 <animated.div className={`nav-dropdown`} style={dropDownSpring}>
                   <ul ref={ref}>
                     {projects.map((each, i) => (

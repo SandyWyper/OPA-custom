@@ -32,7 +32,7 @@ const Item = ({ data, isInView }) => {
         <GatsbyImage
           image={image}
           alt={alt}
-          className="w-12 md:w-24 lg:w-16 xl:w-24"
+          className="w-16 h-16 md:h-24 md:w-24 lg:h-16 lg:w-16 xl:w-24 xl:h-24"
         />
       </div>
       <div className="">

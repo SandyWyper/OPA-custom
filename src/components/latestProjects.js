@@ -19,7 +19,11 @@ const LatestProjects = () => {
             id
             slug
             image {
-              gatsbyImageData
+              gatsbyImageData(
+                layout: CONSTRAINED
+                resizingBehavior: CROP
+                aspectRatio: 1.5
+              )
               title
             }
             childContentfulProjectProjectExcerptTextNode {

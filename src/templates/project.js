@@ -73,10 +73,17 @@ const Project = ({ data }) => {
             <div className="pb-32 bg-cream">
               <div className="lg:grid lg:grid-cols-2">
                 <div className="mb-6 lg:mb-0">
-                  <GatsbyImage image={imageData} alt={image.title} />
+                  <GatsbyImage
+                    image={imageData}
+                    alt={image.title}
+                    className={`h-full
+                  `}
+                  />
                 </div>
                 <div className="px-4 lg:p-8">
-                  <h1 className="text-4xl text-navy lg:text-5xl">{title}</h1>
+                  <h1 className="text-4xl text-navy lg:text-5xl lg:pt-6">
+                    {title}
+                  </h1>
                   <div className="mb-8 lg:mb-0">
                     <div className="flex items-center mb-4 xl:mb-6">
                       <StaticImage

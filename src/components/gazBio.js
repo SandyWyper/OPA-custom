@@ -9,7 +9,7 @@ const GazBio = ({ image, text }) => {
   return (
     <div className={`py-12 bg-navy`}>
       <div className="container py-12 overflow-hidden lg:flex lg:flex-row-reverse lg:items-center">
-        <div className="mx-auto mb-12 md:flex-none md:w-max lg:w-1/3">
+        <div className="mx-auto mb-12 text-center md:flex-none md:w-max lg:w-1/3">
           <GatsbyImage
             className={`max-w-sm rounded-full`}
             image={imageData}

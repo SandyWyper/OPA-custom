@@ -27,16 +27,22 @@ const Item = ({ data, isInView }) => {
   })
 
   return (
-    <div className="w-1/2 mb-8 text-center md:w-auto md:px-8 lg:flex-none">
-      <h5 className="mb-2">{label}</h5>
-      <div className="mb-2 ">
-        <GatsbyImage image={image} alt={alt} className="w-24 md:w-32" />
+    <div className="flex items-center mb-8 md:w-auto md:px-8 lg:flex-none">
+      <div className="mr-6 ">
+        <GatsbyImage
+          image={image}
+          alt={alt}
+          className="w-12 md:w-24 lg:w-16 xl:w-24"
+        />
       </div>
-      <div className="flex items-end justify-center">
-        <animated.h3 className={`mr-2 mb-0 font-bold`}>
-          {interpolateAndFloor(props.val)}
-        </animated.h3>
-        <h4 className="mb-1">{unit}</h4>
+      <div className="">
+        <h4 className="mb-2 text-left max-w-xxs">{label}</h4>
+        <div className="flex items-end ">
+          <animated.h3 className={`mr-2 mb-0`}>
+            {interpolateAndFloor(props.val)}
+          </animated.h3>
+          <h4 className="mb-1">{unit}</h4>
+        </div>
       </div>
     </div>
   )
@@ -73,9 +79,10 @@ const CarbonCounter = () => {
   })
 
   return (
-    <div ref={observe} className={`pb-12 md:pb-24 bg-cream`}>
+    <div ref={observe} className={`pb-24 md:pb-32 bg-cream`}>
       <div className="container">
-        <div className={`max-w-5xl mx-auto flex flex-wrap justify-evenly`}>
+        <h2>OPA's Legacy So Far ...</h2>
+        <div className={`lg:flex lg:justify-center lg:pt-10`}>
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (
             <Item
               data={node}

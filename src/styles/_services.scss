@@ -1,0 +1,22 @@
+.service-title {
+  position: relative;
+
+  @media (min-width: 1024px) {
+    margin-left: -5rem;
+  }
+  @media (min-width: 1280px) {
+    margin-left: -5rem;
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: var(--navy);
+  }
+}

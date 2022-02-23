@@ -10,9 +10,9 @@ const ServicesCTA = ({ image, text, buttonText }) => {
 
   return (
     <section className="bg-cream ">
-      <div className="py-10 md:container md:pt-32 md:pb-24">
-        <div className="md:flex md:items-center">
-          <div className="px-4 mb-12 border-l-4 md:mb-0 md:pl-6 md:w-1/2 md:pr-16 md:border-navy">
+      <div className="pt-10 pb-24 md:pb-32 md:container md:pt-32 ">
+        <div className="lg:flex lg:items-center">
+          <div className="px-4 mb-12 border-l-4 lg:mb-0 md:pl-6 lg:w-1/2 lg:pr-16 md:border-navy">
             <div className="mb-12">{documentToReactComponents(bodyCopy)}</div>
             <button
               className={`px-12 py-2 bg-navy text-pink-50 tracking-widest`}
@@ -22,7 +22,7 @@ const ServicesCTA = ({ image, text, buttonText }) => {
               </Link>
             </button>
           </div>
-          <div className="md:w-1/2">
+          <div className="lg:w-1/2">
             <GatsbyImage image={imageData} alt={image.title} fit="contain" />
           </div>
         </div>

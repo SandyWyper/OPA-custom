@@ -33,7 +33,7 @@ const Services = ({ data }) => {
                   <h1 className="mb-0 text-navy">{servicesTitle}</h1>
                 </div>
               </div>
-              <div className="px-4 py-16 lg:px-8 lg:grid lg:grid-cols-2">
+              <div className="px-4 pt-12 pb-10 lg:py-16 lg:px-8 lg:grid lg:grid-cols-2">
                 <div className="mb-6 lg:mb-0 lg:pr-4">
                   <h1 className="text-navy lg:hidden">{servicesTitle}</h1>
                   {documentToReactComponents(introCopy)}
@@ -62,7 +62,7 @@ const Services = ({ data }) => {
                 </div>
               </div>
             </div>
-            <div className="px-4 py-12 bg-cream">
+            <div className="px-4 lg:py-12 bg-cream">
               <div className="mx-auto md:max-w-3xl">
                 {services.map(each => (
                   <div
@@ -70,7 +70,7 @@ const Services = ({ data }) => {
                     id={handlize(each.nameOfService)}
                     className="py-10"
                   >
-                    <h2>{each.nameOfService}</h2>
+                    <h2 className="service-title">{each.nameOfService}</h2>
                     <div>
                       {documentToReactComponents(
                         JSON.parse(each.serviceDescription.raw)

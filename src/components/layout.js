@@ -14,16 +14,21 @@ const Layout = ({ children }) => {
             title
           }
         }
+        allContentfulService(limit: 4) {
+          nodes {
+            nameOfService
+          }
+        }
       }
     `
   )
+
   return (
     <div className={`min-h-screen flex flex-col justify-between max-w-full`}>
       <div>
         <Header links={links} />
         <main>{children}</main>
       </div>
-      {/* <div className=" footer-space"></div> */}
       <Footer links={links} />
     </div>
   )

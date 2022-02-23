@@ -36,7 +36,7 @@ const LatestProjects = () => {
   return (
     <section className="bg-cream">
       <div className="container pb-16 lg:pb-32">
-        <h2 className="md:px-8">Latest Projects</h2>
+        <h2 className="">Latest Projects</h2>
         <div className="">
           <Swiper
             spaceBetween={50}

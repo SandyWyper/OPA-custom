@@ -51,16 +51,7 @@ const Project = ({ data }) => {
       },
     },
   }
-  // const elements = [
-  //   {
-  //     src: `https:${titleImageLandscape.resize.src}`,
-  //     caption: `${titleImageLandscape.title}`,
-  //   },
-  //   {
-  //     src: `https:${titleImageCropped.resize.src}`,
-  //     caption: `${titleImageCropped.title}`,
-  //   },
-  // ]
+
   return (
     <>
       <GatsbySeo
@@ -94,10 +85,10 @@ const Project = ({ data }) => {
                         alt="Green energy icon"
                       />
                       <div>
-                        <h5 className="mb-0">Installed Capacity</h5>
+                        <h6 className="mb-0">Installed Capacity</h6>
                         <p className="mb-0 text-lg">
                           {amountCarbonOffsetPerAnum}
-                          &nbsp;<span>kWhrs</span>
+                          &nbsp;<span>kW</span>
                         </p>
                       </div>
                     </div>
@@ -108,7 +99,7 @@ const Project = ({ data }) => {
                         alt="Homes powered icon"
                       />
                       <div>
-                        <h5 className="mb-0">Homes Powered</h5>
+                        <h6 className="mb-0">Homes Powered Per Annum</h6>
                         <p className="mb-0 text-lg">
                           {amountEnergyGeneratedPerAnum}&nbsp;
                         </p>
@@ -121,7 +112,7 @@ const Project = ({ data }) => {
                         alt="Map pin icon"
                       />
                       <div>
-                        <h5 className="mb-0">Location</h5>
+                        <h6 className="mb-0">Location</h6>
                         <p className="mb-0 text-lg">{location}&nbsp;</p>
                       </div>
                     </div>

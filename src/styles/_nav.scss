@@ -81,6 +81,7 @@
   overflow-y: scroll;
   background: no-repeat url("./assets/contour-dark-grey.svg") center / cover,
     var(--navy);
+  will-change: transform;
   &::-webkit-scrollbar {
     width: 0; /* Remove scrollbar space */
     background: transparent; /* Optional: just make scrollbar invisible */

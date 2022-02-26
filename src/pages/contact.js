@@ -19,7 +19,7 @@ const Contact = ({ data }) => {
             <div className="px-4 pt-12 lg:px-8 pb-52 bg-cream lg:grid lg:grid-cols-2">
               <div className="mb-8">
                 <h1>{pageTitle}</h1>
-                <p className="mb-6 text-lg md:pr-8 ">
+                <p className="mb-6 text-lg text-left md:pr-8">
                   {childContentfulContactPageIntroTextTextNode.introText}
                 </p>
                 {emailAddress && (

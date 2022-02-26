@@ -1,26 +1,12 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import useScrollPosition from "../lib/useScrollPosition"
-import LogoImg from "../images/OPA.png"
+// import LogoImg from "../images/OPA.png"
 import { useSpring, animated } from "react-spring"
 import { toggleMenuCollapse } from "../lib/toggleMenuCollapse"
 import { useHover } from "../lib/useHover"
 import useMeasure from "react-use-measure"
 import { StaticImage } from "gatsby-plugin-image"
-
-const NavItem = ({ children, path, screen, classes }) => (
-  <li
-    className={
-      screen === "desktop"
-        ? `flex h-full items-center ${classes} ml-12 text-xl font-normal`
-        : `text-4xl text-turquois py-4`
-    }
-  >
-    <Link to={path} className={``}>
-      {children}
-    </Link>
-  </li>
-)
 
 const Header = ({ links }) => {
   const [hoverRef, isHovered] = useHover()
@@ -47,6 +33,21 @@ const Header = ({ links }) => {
     undefined,
     undefined,
     100
+  )
+
+  const NavItem = ({ children, path, screen, classes }) => (
+    <li
+      className={
+        screen === "desktop"
+          ? `flex h-full items-center ${classes} ml-12 text-xl font-normal hover:text-gray-300`
+          : `text-4xl text-turquois py-4 active:text-green`
+      }
+      onClick={() => setIsOpen(false)}
+    >
+      <Link to={path} className={``}>
+        {children}
+      </Link>
+    </li>
   )
 
   return (
@@ -132,6 +133,7 @@ const Header = ({ links }) => {
                     <li
                       key={each.slug + `-` + i}
                       className="py-2 text-turquois"
+                      onClick={() => setIsOpen(!isOpen)}
                     >
                       <Link to={`/${each.slug}`}>{each.title}</Link>
                     </li>

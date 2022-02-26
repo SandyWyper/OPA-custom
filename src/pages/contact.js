@@ -24,7 +24,7 @@ const Contact = ({ data }) => {
                 </p>
                 {emailAddress && (
                   <div className="flex items-center mb-6">
-                    <MailIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-navy" />
+                    <MailIcon className="w-6 h-6 mr-4 fill-current min-w-min xs:mr-4 xs:w-6 xs:h-6 text-navy" />
                     <p className="mb-0">
                       <a href={`mailto:${emailAddress}`}>{emailAddress}</a>
                     </p>
@@ -32,7 +32,7 @@ const Contact = ({ data }) => {
                 )}
                 {phoneNumber && (
                   <div className="flex">
-                    <PhoneIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-navy" />
+                    <PhoneIcon className="w-6 h-6 mr-4 fill-current xs:mr-4 xs:w-6 xs:h-6 text-navy min-w-min" />
                     <div className="flex items-center">
                       <a
                         className="mb-0 font-light"

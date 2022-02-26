@@ -38,6 +38,7 @@
   right: -15px;
   top: 45%;
   background: url("./assets/triangle.svg") center / contain;
+  will-change: transform;
 }
 
 .down-chev-mob:after {
@@ -45,6 +46,7 @@
   top: 45%;
   width: 18px;
   height: 18px;
+  will-change: transform;
   background: url("./assets/triangle-turq.svg") center / contain;
 }
 
@@ -98,6 +100,7 @@
   transition: height 0.15s ease-out;
   width: 100%;
   padding-left: 1rem;
+  will-change: height;
 }
 
 .nav-background {

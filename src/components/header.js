@@ -86,7 +86,10 @@ const Header = ({ links }) => {
                 <animated.div className={`nav-dropdown`} style={dropDownSpring}>
                   <ul ref={ref}>
                     {projects.map((each, i) => (
-                      <li key={each.slug + `-` + i} className="py-4">
+                      <li
+                        key={each.slug + `-` + i}
+                        className="py-4 hover:text-gray-300"
+                      >
                         <Link to={`/${each.slug}`}>{each.title}</Link>
                       </li>
                     ))}

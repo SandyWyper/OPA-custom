@@ -71,7 +71,7 @@ const LatestProjects = () => {
               return (
                 <SwiperSlide key={`latest-project-${each.id}`}>
                   <Link to={`/${each.slug}`}>
-                    <div>
+                    <div className="pb-8">
                       <GatsbyImage
                         image={imageData}
                         alt={each.image.title}

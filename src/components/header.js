@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import useScrollPosition from "../lib/useScrollPosition"
-// import LogoImg from "../images/OPA.png"
+import ProjectsDropDown from "./projectsDropDown.js"
 import { useSpring, animated } from "react-spring"
 import { toggleMenuCollapse } from "../lib/toggleMenuCollapse"
 import { useHover } from "../lib/useHover"
@@ -20,8 +20,9 @@ const Header = ({ links }) => {
   const dropDownSpring = useSpring({
     to: {
       height: isHovered ? `${bounds.height}px` : `0px`,
+      // height: `${bounds.height}px`,
     },
-    config: { friction: 10, mass: 6, tension: 900, clamp: true },
+    config: { friction: 10, mass: 4, tension: 900, clamp: true },
   })
 
   useScrollPosition(
@@ -52,7 +53,9 @@ const Header = ({ links }) => {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50`}>
-      <div className={`nav-background ${isScrollTop ? "" : "is-active"}`}>
+      <div
+        className={`nav-background relative ${isScrollTop ? "" : "is-active"}`}
+      >
         <div className={`container mx-auto flex justify-between items-stretch`}>
           <div>
             <Link to="/">
@@ -79,21 +82,14 @@ const Header = ({ links }) => {
                 services
               </NavItem>
               <li
-                className={`relative  ml-12 down-chev nav-trigger flex h-full items-center text-white`}
+                className={`ml-12 down-chev nav-trigger flex h-full items-center text-white`}
                 ref={hoverRef}
               >
                 <button className={`text-lg pr-4`}>projects</button>
                 <animated.div className={`nav-dropdown`} style={dropDownSpring}>
-                  <ul ref={ref}>
-                    {projects.map((each, i) => (
-                      <li
-                        key={each.slug + `-` + i}
-                        className="py-4 hover:text-gray-300"
-                      >
-                        <Link to={`/${each.slug}`}>{each.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <div ref={ref} className="dropdown-wrapper">
+                    <ProjectsDropDown />
+                  </div>
                 </animated.div>
               </li>
               <NavItem path="/contact" screen="desktop">

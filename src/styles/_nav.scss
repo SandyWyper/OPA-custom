@@ -1,15 +1,41 @@
 .nav-dropdown {
-  position: absolute;
+  position: fixed;
   bottom: auto;
   left: 0;
   right: 0;
-  top: 100%;
+  top: 96px;
   overflow: hidden;
   transition: height 0.15s ease-out;
   padding: 0 1rem;
-  width: max-content;
-  // background-color: rgba(39, 39, 39, 0.93);
-  background: var(--navy);
+  width: 100%;
+  z-index: 0;
+  background: no-repeat top -96px center/180% auto url("./assets/topo-white-2.svg"),
+    linear-gradient(180deg, rgba(71, 84, 81, 1) 45%, #f1ede5 100%) no-repeat
+      top/100% 1000px,
+    #f1ede5;
+  @media (min-width: 768px) {
+    background: no-repeat top -96px center/100% auto url("./assets/topo-white-2.svg"),
+      linear-gradient(180deg, rgba(71, 84, 81, 1) 45%, #f1ede5 100%) no-repeat
+        top/100% 800px,
+      #f1ede5;
+  }
+
+  .dropdown-wrapper {
+    display: flex;
+    margin-left: auto;
+    padding: 1rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    // height: 100%;
+    width: fit-content;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
 
 .nav-trigger {
@@ -38,7 +64,7 @@
   right: -15px;
   top: 45%;
   background: url("./assets/triangle.svg") center / contain;
-  will-change: transform;
+  // will-change: transform;
 }
 
 .down-chev-mob:after {

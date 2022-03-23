@@ -9,33 +9,14 @@ const Footer = ({ links }) => {
   return (
     <footer className="footer">
       <div className="container pt-16 lg:pt-16">
-        <div className="lg:flex lg:pb-16">
+        <div className="lg:flex lg:pb-16 lg:justify-between">
           <div className="mb-8 lg:mb-0 lg:w-1/4">
             <Link to={`/services`}>
               <h3 className="text-white">Services</h3>
             </Link>
-            {services.map((service, i) => (
-              <Link
-                key={`service-${service.nameOfService}`}
-                to={`/services#${handlize(service.nameOfService)}`}
-              >
-                <p className="mb-2 leading-6 text-left text-white">
-                  {service.nameOfService}
-                </p>
-              </Link>
-            ))}
-          </div>
-          <div className="mb-8 lg:mb-0 lg:w-1/4">
-            <h3 className="text-white ">Case studies</h3>
-            {data.map((each, i) => (
-              <Link key={`footer-slug-${i}`} to={`/${each.slug}`}>
-                <p className="mb-2 leading-6 text-left text-white">
-                  {each.title}
-                </p>
-              </Link>
-            ))}
-          </div>
-          <div className="mb-8 lg:w-1/4">
+            <Link to={`/${data[0].slug}`}>
+              <h3 className="text-white ">Case studies</h3>{" "}
+            </Link>
             <Link to={`/contact`}>
               <h3 className="mb-4 text-white">Contact</h3>
             </Link>
@@ -45,16 +26,17 @@ const Footer = ({ links }) => {
             <StaticImage
               className={`max-w-xs`}
               src={`../images/Logo-text.png`}
-              alt="XXXXX"
+              alt="One Planet Associates logo"
             />
           </div>
         </div>
         <p className={`text-xs text-white`}>
           &copy; {new Date().getFullYear()}
           {` - `}
-          <a target={`_blank`} href="https://tinderboxwebsolutions.com">
+          One Planet Associates
+          {/* <a target={`_blank`} href="https://tinderboxwebsolutions.com">
             Tinderbox Web Solutions
-          </a>
+          </a> */}
         </p>
       </div>
     </footer>

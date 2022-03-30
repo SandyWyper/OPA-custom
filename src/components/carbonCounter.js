@@ -27,12 +27,12 @@ const Item = ({ data, isInView }) => {
   })
 
   return (
-    <div className="flex items-center mb-8 md:w-auto md:px-8 lg:flex-none">
-      <div className="mr-6 ">
+    <div className="flex items-center mb-8 sm:flex-none sm:w-1/2 xl:w-1/4">
+      <div className="mr-6">
         <GatsbyImage
           image={image}
           alt={alt}
-          className="w-16 h-16 md:h-24 md:w-24 lg:h-16 lg:w-16 xl:w-24 xl:h-24"
+          className="w-16 h-16 md:h-24 md:w-24"
         />
       </div>
       <div className="">
@@ -82,7 +82,9 @@ const CarbonCounter = () => {
     <div ref={observe} className={`pb-24 md:pb-32 bg-cream`}>
       <div className="container">
         <h2>OPA's Legacy So Far ...</h2>
-        <div className={`lg:flex lg:justify-center lg:pt-10`}>
+        <div
+          className={`w-fit mx-auto sm:flex sm:justify-center lg:pt-10 sm:flex-wrap`}
+        >
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (
             <Item
               data={node}

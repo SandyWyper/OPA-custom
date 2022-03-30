@@ -68,6 +68,7 @@ const Header = ({ links }) => {
                 className={`w-16 h-16 my-2 md:w-20 md:h-20`}
                 src={`../images/OPA.png`}
                 alt="One Planet Associates Logo"
+                quality="100"
               />
             </Link>
           </div>

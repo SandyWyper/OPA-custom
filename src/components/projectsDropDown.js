@@ -36,14 +36,14 @@ const ProjectsDropdown = () => {
         return (
           <div key={`latest-project-${each.id}`}>
             <Link to={`/${each.slug}`}>
-              <div className="relative w-64 mx-2 shadow-xl">
+              <div className="relative w-64 mx-2 shadow-2xl">
                 <GatsbyImage
                   image={imageData}
                   alt={each.image.title}
                   className=""
                 />
-                <div className="absolute inset-0 flex items-center justify-center duration-300 bg-black hover:transition-opacity bg-opacity-90 hover:bg-opacity-20">
-                  <p className="p-4 mb-0 text-xl leading-5 text-center ">
+                <div className="absolute inset-0 flex items-center justify-center duration-300 bg-opacity-90 bg-navy hover:transition-opacity hover:bg-opacity-20">
+                  <p className="p-4 mb-0 text-xl leading-5 text-center">
                     {each.title}
                   </p>
                 </div>

@@ -85,44 +85,50 @@ const Project = ({ data }) => {
                     {title}
                   </h1>
                   <div className="mb-8 lg:mb-0">
-                    <div className="flex items-center mb-4 xl:mb-6">
-                      <StaticImage
-                        className={`w-12 mr-4`}
-                        src={`../images/green-power.png`}
-                        alt="Green energy icon"
-                      />
-                      <div>
-                        <h6 className="mb-0">Installed Capacity</h6>
-                        <p className="mb-0 text-lg">
-                          {amountCarbonOffsetPerAnum}
-                          &nbsp;<span>kW</span>
-                        </p>
+                    {amountCarbonOffsetPerAnum && (
+                      <div className="flex items-center mb-4 xl:mb-6">
+                        <StaticImage
+                          className={`w-12 mr-4`}
+                          src={`../images/green-power.png`}
+                          alt="Green energy icon"
+                        />
+                        <div>
+                          <h6 className="mb-0">Installed Capacity</h6>
+                          <p className="mb-0 text-lg">
+                            {amountCarbonOffsetPerAnum}
+                            &nbsp;<span>kW</span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-center mb-4 xl:mb-6">
-                      <StaticImage
-                        className={`w-12 mr-4`}
-                        src={`../images/home-icon-2.png`}
-                        alt="Homes powered icon"
-                      />
-                      <div>
-                        <h6 className="mb-0">Homes Powered Per Annum</h6>
-                        <p className="mb-0 text-lg">
-                          {amountEnergyGeneratedPerAnum}&nbsp;
-                        </p>
+                    )}
+                    {amountEnergyGeneratedPerAnum && (
+                      <div className="flex items-center mb-4 xl:mb-6">
+                        <StaticImage
+                          className={`w-12 mr-4`}
+                          src={`../images/home-icon-2.png`}
+                          alt="Homes powered icon"
+                        />
+                        <div>
+                          <h6 className="mb-0">Homes Powered Per Annum</h6>
+                          <p className="mb-0 text-lg">
+                            {amountEnergyGeneratedPerAnum}&nbsp;
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-center mb-4 xl:mb-6">
-                      <StaticImage
-                        className={`w-12 mr-4`}
-                        src={`../images/map.png`}
-                        alt="Map pin icon"
-                      />
-                      <div>
-                        <h6 className="mb-0">Location</h6>
-                        <p className="mb-0 text-lg">{location}&nbsp;</p>
+                    )}
+                    {location && (
+                      <div className="flex items-center mb-4 xl:mb-6">
+                        <StaticImage
+                          className={`w-12 mr-4`}
+                          src={`../images/map.png`}
+                          alt="Map pin icon"
+                        />
+                        <div>
+                          <h6 className="mb-0">Location</h6>
+                          <p className="mb-0 text-lg">{location}&nbsp;</p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>

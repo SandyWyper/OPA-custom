@@ -12,6 +12,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-sass`,
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {

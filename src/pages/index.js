@@ -29,9 +29,9 @@ const IndexPage = ({ data }) => {
           text={servicesCta}
           buttonText={servicesButtonText}
         />
-        <CarbonCounter />
         <LatestProjects />
         <GazBio image={gazBioImage} text={gazBioText} />
+        <CarbonCounter />
       </Layout>
     </>
   )

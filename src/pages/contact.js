@@ -14,10 +14,10 @@ const Contact = ({ data }) => {
     <>
       <GatsbySeo title="OPA - Contact" />
       <Layout>
-        <section className="page-wrapper">
-          <div className={`md:container pt-32`}>
-            <div className="px-4 pt-12 lg:px-8 pb-52 bg-cream lg:grid lg:grid-cols-2">
-              <div className="mb-8">
+        <section className="pt-32 page-wrapper">
+          <div className="">
+            <div className="px-4 pt-12 lg:px-8 pb-52 bg-cream lg:grid lg:grid-cols-2 lg:pt-20">
+              <div className="container mb-8">
                 <h1>{pageTitle}</h1>
                 <p className="mb-6 text-lg text-left md:pr-8">
                   {childContentfulContactPageIntroTextTextNode.introText}
@@ -26,7 +26,12 @@ const Contact = ({ data }) => {
                   <div className="flex items-center mb-6">
                     <MailIcon className="w-6 h-6 mr-4 fill-current min-w-min xs:mr-4 xs:w-6 xs:h-6 text-navy" />
                     <p className="mb-0">
-                      <a href={`mailto:${emailAddress}`}>{emailAddress}</a>
+                      <a
+                        class="text-xs sm:text-base"
+                        href={`mailto:${emailAddress}`}
+                      >
+                        {emailAddress}
+                      </a>
                     </p>
                   </div>
                 )}

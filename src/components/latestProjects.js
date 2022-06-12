@@ -39,14 +39,12 @@ const LatestProjects = () => {
 
   return (
     <section className="bg-cream">
-      <div className="container pb-16 lg:pb-32">
-        <h2 className="">Latest Projects</h2>
-        <div className="">
+      <div className="container py-16">
+        <h2>Latest Projects</h2>
+        <div>
           <Swiper
             spaceBetween={50}
             slidesPerView={3}
-            // onSlideChange={() => console.log("slide change")}
-            // onSwiper={swiper => console.log(swiper)}
             navigation={true}
             breakpoints={{
               // when window width is >= 320px

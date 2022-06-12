@@ -10,7 +10,7 @@ const ServicesCTA = ({ image, text, buttonText }) => {
 
   return (
     <section className="bg-cream ">
-      <div className="pt-10 pb-24 md:pb-32 md:container md:pt-32 ">
+      <div className="py-10 md:py-32 md:container">
         <div className="lg:flex lg:items-center">
           <div className="px-4 mb-12 border-l-4 lg:mb-0 md:pl-6 lg:w-1/2 lg:pr-16 md:border-navy">
             <div className="mb-12">{documentToReactComponents(bodyCopy)}</div>

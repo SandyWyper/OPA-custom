@@ -8,7 +8,7 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import RichTextImageBlock from "../components/richTextImageBlock"
 import LatestProjects from "../components/latestProjects"
 import { StaticImage } from "gatsby-plugin-image"
-import { get } from "lodash"
+// import { get } from "lodash"
 
 const Project = ({ data }) => {
   const {
@@ -20,12 +20,10 @@ const Project = ({ data }) => {
     location,
     projectExcerpt,
   } = data.contentfulProject
-  const imageData = getImage(image)
-  console.log("project data", data)
-  //parse the contents of the rich-text data
+
+  // parse the contents of the rich-text data
   const document = JSON.parse(projectContent.raw)
 
-  // console.log(.data.contentfulProject)
   // functions and options for dealing with images used in the rich-text area
   const getEntryWithId = entryId =>
     projectContent.references.filter(ref => ref.contentful_id === entryId)
@@ -69,15 +67,14 @@ const Project = ({ data }) => {
       />
       <Layout>
         <section className="page-wrapper">
-          <div className={`md:container pt-32`}>
+          <div className={`pt-32`}>
             <div className="pb-32 bg-cream">
               <div className="lg:grid lg:grid-cols-2">
                 <div className="mb-6 lg:mb-0">
                   <GatsbyImage
-                    image={imageData}
+                    image={getImage(image)}
                     alt={image.title}
-                    className={`h-full
-                  `}
+                    className="w-full h-full"
                   />
                 </div>
                 <div className="px-4 lg:p-8">

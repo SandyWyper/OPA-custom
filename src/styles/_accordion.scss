@@ -1,0 +1,147 @@
+// New accordion, blog pagebuilder
+
+.accordion-wrapper {
+  padding: 4rem 0;
+  &.article-accordion {
+    padding: 4rem 1rem;
+  }
+}
+
+.accordion-title {
+  max-width: 734px;
+  margin: auto;
+}
+
+.accordion {
+  max-width: 734px;
+  margin: auto;
+
+  &__trigger {
+    color: #fff;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0.5rem 0 0.6rem;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 10px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid;
+  }
+
+  &__content {
+    font-size: 16px;
+    font-weight: 400;
+
+    * {
+      background: transparent;
+      color: #fff;
+    }
+  }
+}
+
+.closed {
+  .vertical {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-90deg);
+  }
+  .horizontal {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-90deg);
+    opacity: 1;
+  }
+}
+
+.opened {
+  opacity: 1;
+  .vertical {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(90deg);
+  }
+  .horizontal {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+.circle-plus {
+  height: 1em;
+  width: 1em;
+  font-size: 1em;
+  opacity: 1;
+}
+
+.circle-plus .circle {
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+.circle-plus .circle .horizontal {
+  position: absolute;
+  background-color: var(--navy);
+  width: 10px;
+  height: 2px;
+  left: 50%;
+  margin-left: -4px;
+  top: 50%;
+}
+.circle-plus .circle .vertical {
+  position: absolute;
+  background-color: var(--navy);
+  width: 2px;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  margin-top: -4px;
+}
+
+.accordion-tab {
+  overflow-x: hidden;
+}
+button.accordion-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  padding: 0.75rem 0;
+  background: transparent;
+
+  h6 {
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+  }
+}
+
+.accordion-content {
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  border-bottom: 1px solid var(--navy);
+}
+.article-accordion {
+  .accordion-content {
+    border-bottom: none;
+  }
+}
+
+.accordion-content:not(.is-active) {
+  height: 0;
+}
+.accordion-button .icon.faq__accordion-chevron {
+  transition: transform 0.3s linear;
+}
+.accordion-button.is-active .icon.faq__accordion-chevron {
+  transform: rotate(180deg) translateY(50%);
+}
+.accordion-content .content-inner {
+  padding: 1rem 0 2rem 0;
+  overflow-x: hidden;
+  height: fit-content;
+  position: relative;
+}

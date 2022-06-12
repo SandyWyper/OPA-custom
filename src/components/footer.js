@@ -1,28 +1,25 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import handlize from "../lib/handlize"
 
-const Footer = ({ links }) => {
-  const data = links.allContentfulProject.nodes
-  const services = links.allContentfulService.nodes
+const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container pt-16 lg:pt-16">
-        <div className="lg:flex lg:pb-16 lg:justify-between">
-          <div className="mb-8 lg:mb-0 lg:w-1/4">
+    <footer className="footer md:pt-20">
+      <div className="container flex flex-col justify-between">
+        <div className="flex flex-col h-full py-12 justify-evenly lg:flex-row-reverse lg:justify-between md:pb-20">
+          <div className="py-6 lg:pt:0 lg:w-1/4">
             <Link to={`/services`}>
               <h3 className="text-white">Services</h3>
             </Link>
-            <Link to={`/${data[0].slug}`}>
-              <h3 className="text-white ">Case studies</h3>{" "}
+            <Link to={`/projects`}>
+              <h3 className="text-white ">Case studies</h3>
             </Link>
             <Link to={`/contact`}>
               <h3 className="mb-4 text-white">Contact</h3>
             </Link>
           </div>
 
-          <div className="mb-16 lg:mb-0 lg:w-1/4">
+          <div className="py-6 lg:pt-0 lg:w-1/4">
             <StaticImage
               className={`max-w-xs`}
               src={`../images/Logo-text.png`}

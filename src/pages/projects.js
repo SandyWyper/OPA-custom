@@ -101,11 +101,6 @@ export const data = graphql`
       }
       introText {
         raw
-        references {
-          gatsbyImageData
-          title
-          contentful_id
-        }
       }
     }
   }

@@ -22,14 +22,15 @@ const FAQs = () => {
   const FAQs = data.allContentfulFaqItem.nodes
 
   return (
-    <div className="mx-auto md:max-w-3xl">
+    <div id="faq" className="mx-auto md:max-w-3xl">
       <h2 className="section-title">FAQs</h2>
       <div>
-        {FAQs.map(each => {
+        {FAQs.map((each, i) => {
           return (
             <FAQItem
               question={each.question.question}
               answer={each.answer.answer}
+              key={`item-${i}`}
             />
           )
         })}

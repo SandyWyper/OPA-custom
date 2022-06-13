@@ -14,6 +14,9 @@ const Footer = () => {
             <Link to={`/projects`}>
               <h3 className="text-white ">Case studies</h3>
             </Link>
+            <Link to={`/services#faq`}>
+              <h3 className="mb-4 text-white">FAQs</h3>
+            </Link>
             <Link to={`/contact`}>
               <h3 className="mb-4 text-white">Contact</h3>
             </Link>

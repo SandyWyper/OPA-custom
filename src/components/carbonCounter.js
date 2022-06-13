@@ -27,8 +27,8 @@ const Item = ({ data, isInView }) => {
   })
 
   return (
-    <div className="mb-8 text-center sm:flex-none sm:w-1/2 xl:w-1/4">
-      <div className="">
+    <div className="flex mb-8 sm:text-center sm:block sm:flex-none sm:w-1/2 xl:w-1/4">
+      <div className="mr-8 sm:mr-0">
         <GatsbyImage
           image={image}
           alt={alt}
@@ -37,8 +37,8 @@ const Item = ({ data, isInView }) => {
       </div>
       <div className="">
         <h4 className="mb-2">{label}</h4>
-        <div className="flex items-end justify-center">
-          <animated.h3 className={`mr-2 mb-0`}>
+        <div className="flex items-end sm:justify-center">
+          <animated.h3 className={`mr-2 mb-0 font-semibold text-navy`}>
             {interpolateAndFloor(props.val)}
           </animated.h3>
           <h4 className="mb-1">{unit}</h4>

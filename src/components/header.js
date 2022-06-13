@@ -3,11 +3,9 @@ import { Link } from "gatsby"
 import useScrollPosition from "../lib/useScrollPosition"
 import { StaticImage } from "gatsby-plugin-image"
 
-const Header = ({ links }) => {
-  const projects = links.allContentfulProject.nodes
+const Header = () => {
   // Mobile nav open or not state
   const [isOpen, setIsOpen] = useState(false)
-
   const [isScrollTop, setIsScrollTop] = useState(true)
 
   useScrollPosition(
@@ -83,19 +81,6 @@ const Header = ({ links }) => {
               <NavItem path="/projects" screen="mobile">
                 projects
               </NavItem>
-              <div id="mob-projects-content" className={`mob-nav-dropdown`}>
-                <ul>
-                  {projects.map((each, i) => (
-                    <li
-                      key={each.slug + `-` + i}
-                      className="py-2 text-turquois"
-                      onClick={() => setIsOpen(!isOpen)}
-                    >
-                      <Link to={`/${each.slug}`}>{each.title}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
               <NavItem path="/contact" screen="mobile">
                 contact
               </NavItem>

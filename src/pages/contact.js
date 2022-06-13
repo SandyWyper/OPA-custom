@@ -27,7 +27,7 @@ const Contact = ({ data }) => {
                     <MailIcon className="w-6 h-6 mr-4 fill-current min-w-min xs:mr-4 xs:w-6 xs:h-6 text-navy" />
                     <p className="mb-0">
                       <a
-                        class="text-xs sm:text-base"
+                        className="text-xs sm:text-base"
                         href={`mailto:${emailAddress}`}
                       >
                         {emailAddress}

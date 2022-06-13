@@ -15,23 +15,23 @@ const FAQItem = ({ question, answer }) => {
   return (
     <>
       <FAQJsonLd questions={[{ question: question, answer: answer }]} />
-      <div class="accordion-tab">
+      <div className="accordion-tab">
         <button
-          class="accordion-button mt-4"
+          className="mt-4 accordion-button"
           // data-tab-name="nutrition"
           aria-expanded="false"
           onClick={() => setIsOpen(!isOpen)}
         >
           <h4>{question}</h4>
-          <div class={`circle-plus closed ${isOpen ? "opened" : ""}`}>
-            <div class="circle">
-              <div class="horizontal"></div>
-              <div class="vertical"></div>
+          <div className={`circle-plus closed ${isOpen ? "opened" : ""}`}>
+            <div className="circle">
+              <div className="horizontal"></div>
+              <div className="vertical"></div>
             </div>
           </div>
         </button>
         <animated.div
-          class="accordion-content will-change-height"
+          className="accordion-content will-change-height"
           // data-accordion-content="nutrition"
           style={dropDownSpring}
           aria-hidden="true"

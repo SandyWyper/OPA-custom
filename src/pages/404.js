@@ -14,9 +14,13 @@ const NotFoundPage = () => (
             <div className="md:w-1/2">
               <h1>Page Not Found</h1>
               <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-              <Link to={`/`} className="uppercase">
-                Return home
-              </Link>
+              <button
+                className={`px-12 py-2 bg-navy text-pink-50 tracking-widest`}
+              >
+                <Link to={`/`} className="uppercase">
+                  Return home
+                </Link>
+              </button>
             </div>
             <Robot404 classes="" />
           </div>

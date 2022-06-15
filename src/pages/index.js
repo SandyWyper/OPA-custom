@@ -8,6 +8,7 @@ import ServicesCTA from "../components/servicesCTA"
 import GazBio from "../components/gazBio"
 import LatestProjects from "../components/latestProjects"
 import { Helmet } from "react-helmet"
+import { LogoJsonLd } from "gatsby-plugin-next-seo"
 
 const IndexPage = ({ data }) => {
   const {
@@ -18,7 +19,9 @@ const IndexPage = ({ data }) => {
     servicesButtonText,
     servicesCta,
     servicesCtaImage,
+    logo,
   } = data.allContentfulHomePage.nodes[0]
+  console.log(data)
   return (
     <>
       <GatsbySeo
@@ -38,13 +41,17 @@ const IndexPage = ({ data }) => {
           ],
         }}
       />
+      <LogoJsonLd
+        logo={`https:${logo.resize.src}`}
+        url="https://oneplanetassociates.com/"
+      />
       <Helmet>
         <meta
           name="google-site-verification"
           content="G9gB-KnSrc6ROHwtZ88LpkbNkXSz9P9FUwK3dmRHlR4"
         />
       </Helmet>
-      <Layout>
+      <Layout logo={logo}>
         <Hero image={heroImage} text={heroText} />
         <ServicesCTA
           image={servicesCtaImage}
@@ -94,6 +101,14 @@ export const data = graphql`
         }
         gazBioText {
           raw
+        }
+        logo {
+          gatsbyImageData
+          resize(width: 600, quality: 90) {
+            height
+            src
+            width
+          }
         }
       }
     }

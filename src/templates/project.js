@@ -44,13 +44,14 @@ const Project = ({ data }) => {
         title={title}
         images={[
           {
-            url: image.resize.src,
+            url: `https:${image.resize.src}`,
             width: image.resize.width,
             height: image.resize.height,
             alt: image.title,
           },
         ]}
         authorName="Gareth Davies"
+        publisherName="One Planet Associates Ltd"
         description={projectExcerpt.projectExcerpt}
       />
       <GatsbySeo

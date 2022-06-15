@@ -23,12 +23,13 @@ const Header = () => {
     <li
       className={
         screen === "desktop"
-          ? `flex h-full items-center ${classes} ml-12 text-lg font-normal hover:text-gray-300`
+          ? `flex h-full items-center ${classes} ml-12 font-normal hover:text-gray-300`
           : `text-4xl text-turquois py-4 active:text-green`
       }
-      onClick={() => setIsOpen(false)}
     >
-      <Link to={path}>{children}</Link>
+      <Link to={path} onClick={() => setIsOpen(false)}>
+        {children}
+      </Link>
     </li>
   )
 

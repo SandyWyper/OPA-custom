@@ -1,7 +1,7 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { GatsbySeo } from "gatsby-plugin-next-seo"
+// import { GatsbySeo } from "gatsby-plugin-next-seo"
 
 const GazBio = ({ image, text }) => {
   const imageData = getImage(image)
@@ -10,7 +10,7 @@ const GazBio = ({ image, text }) => {
 
   return (
     <div className={`py-12 bg-navy`}>
-      <GatsbySeo
+      {/* <GatsbySeo
         openGraph={{
           title: "Gareth Davies",
           description: "Director of One Planet Asssociates Ltd",
@@ -31,7 +31,7 @@ const GazBio = ({ image, text }) => {
             },
           ],
         }}
-      />
+      /> */}
       <div className="container py-12 overflow-hidden lg:flex lg:flex-row-reverse lg:items-center">
         <div className="mx-auto mb-12 text-center md:flex-none md:w-max lg:w-1/3">
           <GatsbyImage

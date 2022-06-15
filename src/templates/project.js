@@ -8,7 +8,7 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import RichTextImageBlock from "../components/richTextImageBlock"
 import LatestProjects from "../components/latestProjects"
 import { StaticImage } from "gatsby-plugin-image"
-// import { get } from "lodash"
+import { BlogPostJsonLd } from "gatsby-plugin-next-seo"
 
 const Project = ({ data }) => {
   const {
@@ -31,28 +31,29 @@ const Project = ({ data }) => {
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
-        // const nodeData = getEntryWithId(node.data.target.sys.id)
-        // const images = get(nodeData, "[0].images", undefined)
-
-        // const baseIndexForComponent = lightboxImageIndex
-        // lightboxImageIndex = lightboxImageIndex + images.length
-
-        // images.forEach(image => {
-        //   elements.push({ src: image.resize.src, caption: image.title })
-        // })
-        return (
-          <RichTextImageBlock
-            data={getEntryWithId(data.target.sys.id)}
-            // baseIndex={baseIndexForComponent}
-          />
-        )
+        return <RichTextImageBlock data={getEntryWithId(data.target.sys.id)} />
       },
     },
   }
 
   return (
     <>
+      <BlogPostJsonLd
+        url="https://example.com/blog"
+        title={title}
+        images={[
+          {
+            url: image.resize.src,
+            width: image.resize.width,
+            height: image.resize.height,
+            alt: image.title,
+          },
+        ]}
+        authorName="Gareth Davies"
+        description={projectExcerpt.projectExcerpt}
+      />
       <GatsbySeo
+        title={`OPA - ${title}`}
         description={projectExcerpt.projectExcerpt}
         openGraph={{
           images: [

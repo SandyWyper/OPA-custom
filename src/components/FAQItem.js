@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { useSpring, animated } from "react-spring"
 import useMeasure from "react-use-measure"
-import { FAQJsonLd } from "gatsby-plugin-next-seo"
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,13 +11,12 @@ const FAQItem = ({ question, answer }) => {
     },
     config: { friction: 10, mass: 4, tension: 900, clamp: true },
   })
+
   return (
     <>
-      <FAQJsonLd questions={[{ question: question, answer: answer }]} />
       <div className="accordion-tab">
         <button
           className="mt-4 accordion-button"
-          // data-tab-name="nutrition"
           aria-expanded="false"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -32,7 +30,6 @@ const FAQItem = ({ question, answer }) => {
         </button>
         <animated.div
           className="accordion-content will-change-height"
-          // data-accordion-content="nutrition"
           style={dropDownSpring}
           aria-hidden="true"
         >
@@ -44,4 +41,5 @@ const FAQItem = ({ question, answer }) => {
     </>
   )
 }
+
 export default FAQItem

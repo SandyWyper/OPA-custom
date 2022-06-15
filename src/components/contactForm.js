@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { navigate } from "gatsby"
-import PropTypes from "prop-types"
 
 const encode = data => {
   return Object.keys(data)
@@ -52,10 +51,9 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div className="">
-        <p>{this.props.prompt}</p>
+      <div>
         <form
-          className="w-full max-w-xl"
+          className="w-full"
           method="post"
           name="OPA-Contact"
           data-netlify="true"
@@ -126,11 +124,6 @@ class ContactForm extends Component {
       </div>
     )
   }
-}
-
-ContactForm.propTypes = {
-  menuToggle: PropTypes.func,
-  prompt: PropTypes.string,
 }
 
 export default ContactForm

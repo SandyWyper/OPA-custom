@@ -15,10 +15,10 @@ const Contact = ({ data }) => {
       <GatsbySeo title="OPA - Contact" />
       <Layout>
         <section className="pt-32 page-wrapper">
-          <div className="">
-            <div className="px-4 pt-12 lg:px-8 pb-52 bg-cream lg:grid lg:grid-cols-2 lg:pt-20">
-              <div className="container mb-8">
-                <h1>{pageTitle}</h1>
+          <div className="bg-cream">
+            <div className="container pt-12 mx-auto pb-52 lg:grid lg:grid-cols-2 lg:pt-20">
+              <div className="mb-8">
+                <h1 className="text-5xl">{pageTitle}</h1>
                 <p className="mb-6 text-lg text-left md:pr-8">
                   {childContentfulContactPageIntroTextTextNode.introText}
                 </p>

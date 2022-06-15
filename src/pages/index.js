@@ -19,10 +19,25 @@ const IndexPage = ({ data }) => {
     servicesCta,
     servicesCtaImage,
   } = data.allContentfulHomePage.nodes[0]
-
   return (
     <>
-      <GatsbySeo />
+      <GatsbySeo
+        openGraph={{
+          type: "website",
+          url: "https://oneplanetassociates.com/",
+          title: "One Planet Asssociates Ltd",
+          description:
+            "OPA provides planning and consultancy services for domestic and commercial clients.",
+          images: [
+            {
+              url: `https:${heroImage.resize.src}`,
+              width: heroImage.resize.width,
+              height: heroImage.resize.height,
+              alt: heroImage.title,
+            },
+          ],
+        }}
+      />
       <Helmet>
         <meta
           name="google-site-verification"
@@ -64,6 +79,11 @@ export const data = graphql`
         heroImage {
           gatsbyImageData
           title
+          resize(width: 900) {
+            height
+            width
+            src
+          }
         }
         gazBioImage {
           gatsbyImageData

@@ -19,6 +19,7 @@ const Project = ({ data }) => {
     projectContent,
     location,
     projectExcerpt,
+    slug,
   } = data.contentfulProject
 
   // parse the contents of the rich-text data
@@ -39,7 +40,7 @@ const Project = ({ data }) => {
   return (
     <>
       <BlogPostJsonLd
-        url="https://example.com/blog"
+        url={`https://oneplanetassociates.com/${slug}`}
         title={title}
         images={[
           {

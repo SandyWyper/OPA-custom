@@ -79,7 +79,7 @@ const CarbonCounter = () => {
   })
 
   return (
-    <div ref={observe} className={`pt-12 pb-4 counter-bg`}>
+    <div ref={observe} className={`pt-12 pb-4 counter-bg md:my-10`}>
       <div className="container">
         {/* <h2>OPA's Legacy So Far ...</h2> */}
         <div

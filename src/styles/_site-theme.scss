@@ -23,3 +23,23 @@
     min-height: 0;
   }
 }
+.counter-bg {
+  position: relative;
+  background: var(--green);
+  z-index: -3;
+}
+
+.counter-bg:before {
+  position: absolute;
+  z-index: -2;
+  content: "";
+  inset: 0;
+  // opacity: 0;
+  background: no-repeat top/180% auto url("./assets/contour-dark-grey.svg"),
+    rgb(71, 84, 81);
+  transition: opacity 0.7s ease;
+  @media (min-width: 768px) {
+    background: no-repeat top/100% auto url("./assets/contour-dark-grey.svg"),
+      #475451;
+  }
+}

@@ -36,9 +36,9 @@ const IndexPage = ({ data }) => {
           text={servicesCta}
           buttonText={servicesButtonText}
         />
+        <CarbonCounter />
         <LatestProjects />
         <GazBio image={gazBioImage} text={gazBioText} />
-        <CarbonCounter />
       </Layout>
     </>
   )
@@ -68,6 +68,9 @@ export const data = graphql`
         gazBioImage {
           gatsbyImageData
           title
+          file {
+            url
+          }
         }
         gazBioText {
           raw

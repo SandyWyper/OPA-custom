@@ -35,10 +35,10 @@ const Item = ({ data, isInView }) => {
           className="w-16 h-16 mb-6 md:h-24 md:w-24"
         />
       </div>
-      <div className="">
+      <div className="text-white">
         <h4 className="mb-2">{label}</h4>
         <div className="flex items-end sm:justify-center">
-          <animated.h3 className={`mr-2 mb-0 font-semibold text-navy`}>
+          <animated.h3 className={`mr-2 mb-0 font-semibold`}>
             {interpolateAndFloor(props.val)}
           </animated.h3>
           <h4 className="mb-1">{unit}</h4>
@@ -79,11 +79,11 @@ const CarbonCounter = () => {
   })
 
   return (
-    <div ref={observe} className={`py-24 bg-cream`}>
+    <div ref={observe} className={`pt-12 pb-4 counter-bg`}>
       <div className="container">
-        <h2>OPA's Legacy So Far ...</h2>
+        {/* <h2>OPA's Legacy So Far ...</h2> */}
         <div
-          className={`w-full mx-auto sm:flex sm:justify-center lg:pt-10 sm:flex-wrap`}
+          className={`w-full mx-auto sm:flex sm:justify-center  sm:flex-wrap`}
         >
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (
             <Item

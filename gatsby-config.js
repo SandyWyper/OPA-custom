@@ -88,10 +88,8 @@ module.exports = {
         name: `One Planet Associates`,
         short_name: `OPA`,
         start_url: `/`,
-        background_color: `#475451`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        background_color: `#f1ede5`,
+        theme_color: `#475451`,
         display: `minimal-ui`,
         icon: `src/images/OPA.png`, // This path is relative to the root of the site.
       },

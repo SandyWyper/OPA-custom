@@ -35,7 +35,7 @@ const ProjectsDropdown = () => {
         const imageData = getImage(each.image)
         return (
           <div key={`latest-project-${each.id}`}>
-            <Link to={`/${each.slug}`}>
+            <Link to={`/${each.slug}/`}>
               <div className="relative w-64 mx-2 shadow-2xl">
                 <GatsbyImage
                   image={imageData}

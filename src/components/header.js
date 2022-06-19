@@ -56,13 +56,13 @@ const Header = () => {
               <NavItem path="/" screen="desktop">
                 home
               </NavItem>
-              <NavItem path="/services" screen="desktop">
+              <NavItem path="/services/" screen="desktop">
                 services
               </NavItem>
-              <NavItem path="/projects" screen="desktop">
+              <NavItem path="/projects/" screen="desktop">
                 projects
               </NavItem>
-              <NavItem path="/contact" screen="desktop">
+              <NavItem path="/contact/" screen="desktop">
                 contact
               </NavItem>
             </ul>
@@ -76,13 +76,13 @@ const Header = () => {
               <NavItem path="/" screen="mobile">
                 home
               </NavItem>
-              <NavItem path="/services" screen="mobile">
+              <NavItem path="/services/" screen="mobile">
                 services
               </NavItem>
-              <NavItem path="/projects" screen="mobile">
+              <NavItem path="/projects/" screen="mobile">
                 projects
               </NavItem>
-              <NavItem path="/contact" screen="mobile">
+              <NavItem path="/contact/" screen="mobile">
                 contact
               </NavItem>
             </ul>

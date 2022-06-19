@@ -14,6 +14,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     "gatsby-plugin-netlify",
     {
+      resolve: `gatsby-plugin-force-trailing-slashes`,
+      options: {
+        excludedPaths: [`/404.html`],
+      },
+    },
+    {
       resolve: "gatsby-plugin-anchor-links",
       options: {
         offset: -100,

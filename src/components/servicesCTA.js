@@ -17,7 +17,7 @@ const ServicesCTA = ({ image, text, buttonText }) => {
             <button
               className={`px-12 py-2 bg-navy text-pink-50 tracking-widest`}
             >
-              <Link to={`/services`} className="uppercase">
+              <Link to={`/services/`} className="uppercase">
                 {buttonText}
               </Link>
             </button>

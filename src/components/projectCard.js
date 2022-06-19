@@ -12,7 +12,7 @@ const ProjectCard = ({
 }) => {
   const imageData = getImage(image)
   return (
-    <Link to={`/${slug}`}>
+    <Link to={`/projects/${slug}/`}>
       <div className="pb-8">
         <GatsbyImage image={imageData} alt={title} className="mb-8" />
         <h5>{title}</h5>

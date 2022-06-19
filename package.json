@@ -10,6 +10,7 @@
     "cross-env": "^7.0.3",
     "gatsby": "^3.13.1",
     "gatsby-plugin-anchor-links": "^1.2.1",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.6",
     "gatsby-plugin-image": "^1.13.0",
     "gatsby-plugin-manifest": "^3.13.0",
     "gatsby-plugin-netlify": "^5.0.0",

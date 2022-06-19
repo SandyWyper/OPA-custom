@@ -8,16 +8,16 @@ const Footer = () => {
       <div className="container flex flex-col justify-between">
         <div className="flex flex-col h-full py-12 justify-evenly lg:flex-row-reverse lg:justify-between md:pb-20">
           <div className="py-6 lg:pt:0 lg:w-1/4">
-            <Link to={`/services`}>
+            <Link to={`/services/`}>
               <h3 className="text-white">Services</h3>
             </Link>
-            <Link to={`/projects`}>
+            <Link to={`/projects/`}>
               <h3 className="text-white ">Case studies</h3>
             </Link>
-            <Link to={`/services#faq`}>
+            <Link to={`/services/#faq`}>
               <h3 className="mb-4 text-white">FAQs</h3>
             </Link>
-            <Link to={`/contact`}>
+            <Link to={`/contact/`}>
               <h3 className="mb-4 text-white">Contact</h3>
             </Link>
           </div>

@@ -77,14 +77,14 @@ export const data = graphql`
           raw
         }
         servicesCtaImage {
-          gatsbyImageData
+          gatsbyImageData(sizes: "(min-width: 600px) 50vw, 100vw", quality: 85)
           title
         }
         heroText {
           heroText
         }
         heroImage {
-          gatsbyImageData
+          gatsbyImageData(quality: 85)
           title
           resize(width: 900) {
             height
@@ -93,7 +93,10 @@ export const data = graphql`
           }
         }
         gazBioImage {
-          gatsbyImageData
+          gatsbyImageData(
+            quality: 85
+            sizes: "(min-width: 1024px) 25vw, (min-width: 600px) 50vw, 100vw"
+          )
           title
           file {
             url

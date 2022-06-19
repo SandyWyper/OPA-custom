@@ -158,7 +158,7 @@ export const data = graphql`
       amountEnergyGeneratedPerAnum
       slug
       image {
-        gatsbyImageData(quality: 80)
+        gatsbyImageData(sizes: "(min-width: 1024px) 50vw, 100vw", quality: 70)
         title
         resize(width: 1000) {
           width

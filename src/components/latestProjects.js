@@ -20,9 +20,11 @@ const LatestProjects = () => {
             slug
             image {
               gatsbyImageData(
-                layout: CONSTRAINED
                 resizingBehavior: CROP
+                cropFocus: CENTER
                 aspectRatio: 1.5
+                quality: 85
+                sizes: "(min-width: 800px) 25vw, (min-width: 480px) 50vw, 100vw"
               )
               title
             }
@@ -58,7 +60,7 @@ const LatestProjects = () => {
                 spaceBetween: 30,
               },
               // when window width is >= 640px
-              768: {
+              1024: {
                 slidesPerView: 3,
                 spaceBetween: 40,
               },

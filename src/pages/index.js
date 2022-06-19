@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
     servicesCtaImage,
     logo,
   } = data.allContentfulHomePage.nodes[0]
-  console.log(data)
+
   return (
     <>
       <GatsbySeo

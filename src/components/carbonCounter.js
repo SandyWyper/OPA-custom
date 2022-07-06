@@ -83,7 +83,7 @@ const CarbonCounter = () => {
       <div className="container">
         {/* <h2>OPA's Legacy So Far ...</h2> */}
         <div
-          className={`w-full mx-auto sm:flex sm:justify-center  sm:flex-wrap`}
+          className={`w-full mx-auto sm:flex sm:justify-center sm:flex-wrap`}
         >
           {data.allContentfulScoreboardItem.nodes.map((node, i) => (
             <Item

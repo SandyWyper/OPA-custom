@@ -7,13 +7,17 @@ const Header = () => {
   // Mobile nav open or not state
   const [isOpen, setIsOpen] = useState(false)
   const [isScrollTop, setIsScrollTop] = useState(true)
+  const [isNavTransparent, setIsNavTransparent] = useState(true)
 
   useScrollPosition(
-    ({ currPos }) => {
-      const pos = currPos.y > -220
-      if (pos !== isScrollTop) setIsScrollTop(pos)
+    ({ currPos, prevPos }) => {
+      console.log(currPos.y > -220 || currPos.y > prevPos.y)
+      const isShowNav = currPos.y > -220 || currPos.y > prevPos.y
+      const isNavBGShown = currPos.y > -220
+      if (isShowNav !== isScrollTop) setIsScrollTop(isShowNav)
+      if (isNavBGShown !== isNavTransparent) setIsNavTransparent(isNavBGShown)
     },
-    [isScrollTop],
+    [isScrollTop, isNavTransparent],
     undefined,
     undefined,
     100
@@ -34,9 +38,15 @@ const Header = () => {
   )
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50`}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 header ${
+        isScrollTop ? "is-active" : ""
+      }`}
+    >
       <div
-        className={`nav-background relative ${isScrollTop ? "" : "is-active"}`}
+        className={`nav-background relative ${
+          isNavTransparent ? "is-transparent" : ""
+        }`}
       >
         <div className={`container mx-auto flex justify-between items-stretch`}>
           <div>

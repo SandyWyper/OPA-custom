@@ -20,11 +20,12 @@ const LatestProjects = () => {
             slug
             image {
               gatsbyImageData(
-                resizingBehavior: CROP
+                resizingBehavior: FILL
                 cropFocus: CENTER
                 aspectRatio: 1.5
                 quality: 85
                 sizes: "(min-width: 800px) 25vw, (min-width: 480px) 50vw, 100vw"
+                placeholder: TRACED_SVG
               )
               title
             }

@@ -38,7 +38,7 @@ const Services = ({ data }) => {
                           height={20}
                         />
                         <AnchorLink
-                          to={`services#${handlize(each.nameOfService)}`}
+                          to={`#${handlize(each.nameOfService)}`}
                           title={each.nameOfService}
                           className="mb-6 text-lg font-semibold text-navy"
                         >
